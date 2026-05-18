@@ -128,8 +128,8 @@
     .breadcrumb a { color: var(--red-060); text-decoration: none; }
     .breadcrumb-sep { color: var(--neutral-040); }
     .hero-text {
-      padding: 32px 16px 48px;
-      text-align: center;
+      padding: 20px 16px 28px;
+      text-align: left;
     }
     .hero-title {
       font-family: var(--font-serif);
@@ -161,147 +161,21 @@
       background: var(--white);
       border: 1px solid var(--neutral-040);
       border-radius: var(--radius-md);
-      padding: 16px;
-      box-shadow: 0 2px 4px rgba(52,63,65,0.2);
-      margin-bottom: 8px;
-    }
-    .order-card-top {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 12px;
-      position: relative;
-    }
-    .status-chip {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: #fff8e1;
-      border: 1px solid #f0c43f;
-      border-radius: var(--radius-full);
-      padding: 4px 10px;
-      font-size: 12px;
-      font-weight: 600;
-      color: #7a5d00;
-    }
-    .status-chip-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: #f0c43f;
-    }
-    .more-icon {
-      color: var(--neutral-080);
-      cursor: pointer;
-      font-size: 20px;
-      display: flex;
-      align-items: center;
-      padding: 4px;
-      border-radius: 4px;
-      position: relative;
-    }
-    .more-icon:hover { background: var(--neutral-010); }
-
-    /* More menu dropdown */
-    .more-menu {
-      display: none;
-      position: absolute;
-      right: 0;
-      top: 32px;
-      background: white;
-      border: 1px solid var(--neutral-040);
-      border-radius: var(--radius-sm);
-      box-shadow: 0 4px 16px rgba(0,0,0,0.12);
-      z-index: 200;
-      min-width: 190px;
-      overflow: hidden;
-    }
-    .more-menu.open { display: block; }
-    .more-menu-item {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      width: 100%;
       padding: 14px 16px;
-      border: none;
-      background: none;
-      font-size: 14px;
-      font-weight: 500;
-      color: var(--neutral-100);
+      box-shadow: 0 2px 4px rgba(52,63,65,0.2);
+      margin-bottom: 4px;
       cursor: pointer;
-      text-align: left;
-      border-bottom: 1px solid var(--neutral-010);
-      font-family: var(--font-sans);
-      font-size: 14px;
+      transition: box-shadow 0.15s;
     }
-    .more-menu-item:last-child { border-bottom: none; }
-    .more-menu-item:hover { background: var(--neutral-010); }
-    .more-menu-danger { color: var(--red-060); }
-
-    /* Order card expand */
-    .order-details {
-      display: none;
-      margin-top: 12px;
-    }
-    .order-details.open { display: block; }
-    .order-detail-divider {
-      border-top: 1px solid var(--neutral-040);
-      margin-bottom: 10px;
-    }
-    .order-detail-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 5px 0;
-    }
-    .order-detail-label {
-      font-size: 13px;
-      color: var(--neutral-080);
-    }
-    .order-detail-value {
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--neutral-100);
-    }
-    .order-track-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      margin-top: 10px;
-      font-size: 14px;
-      font-weight: 700;
-      color: var(--red-060);
-      text-decoration: none;
-      font-size: 14px;
-    }
-    .card-expand-btn {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      margin-top: 14px;
-      padding: 0;
-      border: none;
-      background: none;
-      font-size: 14px;
-      font-weight: 700;
-      color: var(--red-060);
-      cursor: pointer;
-      font-family: var(--font-sans);
-    }
-    .card-caret {
-      transition: transform 0.2s;
-      display: block;
-    }
-    .card-caret.open { transform: rotate(180deg); }
-
-    .med-content {
+    .order-card:hover { box-shadow: 0 4px 10px rgba(52,63,65,0.28); }
+    .order-card-inner {
       display: flex;
       align-items: center;
       gap: 12px;
     }
     .med-thumb {
-      width: 60px;
-      height: 61px;
+      width: 52px;
+      height: 52px;
       background: var(--neutral-010);
       border-radius: 4px;
       display: flex;
@@ -311,20 +185,104 @@
       flex-shrink: 0;
     }
     .med-thumb img { width: 100%; height: 100%; object-fit: contain; }
+    .med-info { flex: 1; min-width: 0; }
     .med-name {
-      font-size: 18px;
+      font-size: 15px;
       font-weight: 900;
-      line-height: 28px;
+      line-height: 22px;
       color: var(--neutral-100);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
     .med-sub {
-      font-size: 12px;
+      font-size: 11px;
       font-weight: 400;
       text-transform: uppercase;
       letter-spacing: 0.5px;
       color: var(--neutral-080);
-      margin-top: 4px;
+      margin-bottom: 5px;
     }
+    .status-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: #fff8e1;
+      border: 1px solid #f0c43f;
+      border-radius: var(--radius-full);
+      padding: 3px 8px;
+      font-size: 11px;
+      font-weight: 600;
+      color: #7a5d00;
+    }
+    .status-chip-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #f0c43f;
+      flex-shrink: 0;
+    }
+    .card-caret {
+      flex-shrink: 0;
+      color: var(--neutral-080);
+      transition: transform 0.2s;
+      display: block;
+      margin-left: 4px;
+    }
+    .card-caret.open { transform: rotate(180deg); }
+
+    /* Medication selector */
+    .med-selector {
+      display: none;
+      background: var(--white);
+      border: 1px solid var(--neutral-040);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      margin-bottom: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .med-selector.open { display: block; }
+    .med-option {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--neutral-010);
+      cursor: pointer;
+      transition: background 0.1s;
+    }
+    .med-option:last-child { border-bottom: none; }
+    .med-option:hover { background: var(--neutral-010); }
+    .med-option.active { background: var(--red-005); }
+    .med-option-thumb {
+      width: 44px;
+      height: 44px;
+      background: var(--neutral-010);
+      border-radius: 4px;
+      overflow: hidden;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .med-option-thumb img { width: 100%; height: 100%; object-fit: contain; }
+    .med-option-info { flex: 1; min-width: 0; }
+    .med-option-name {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--neutral-100);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .med-option-sub {
+      font-size: 11px;
+      color: var(--neutral-080);
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+      margin-top: 2px;
+    }
+    .med-option-sub.add { text-transform: none; font-style: italic; letter-spacing: 0; }
 
     /* ── STATUS MSG ── */
     .status-msg {
@@ -905,54 +863,46 @@
     <div class="showing-support">
       <p class="showing-label">Showing support for</p>
 
-      <!-- ORDER CARD -->
-      <div class="order-card" id="orderCard">
-        <div class="order-card-top">
-          <span class="status-chip">
-            <span class="status-chip-dot"></span>
-            Pharmacist reviewing
-          </span>
-          <span class="more-icon" id="moreBtn" onclick="toggleMoreMenu(event)">
-            <ph-dots-three-vertical size="20"></ph-dots-three-vertical>
-          </span>
-          <!-- More menu -->
-          <div class="more-menu" id="moreMenu">
-            <button class="more-menu-item" onclick="closeMoreMenu()"><ph-package size="16"></ph-package> View order details</button>
-            <button class="more-menu-item" onclick="closeMoreMenu()"><ph-map-pin size="16"></ph-map-pin> Track shipment</button>
-            <button class="more-menu-item" onclick="closeMoreMenu()"><ph-phone size="16"></ph-phone> Contact pharmacy</button>
-            <button class="more-menu-item more-menu-danger" onclick="closeMoreMenu()"><ph-x size="16"></ph-x> Cancel order</button>
-          </div>
-        </div>
-        <div class="med-content">
+      <!-- ORDER CARD — tap to switch medication -->
+      <div class="order-card" id="orderCard" onclick="toggleMedSelector()">
+        <div class="order-card-inner">
           <div class="med-thumb">
-            <img src="https://www.figma.com/api/mcp/asset/af1c9a2b-1711-4827-adc9-eb90736f61be" alt="Zepbound vial" />
+            <img src="https://www.figma.com/api/mcp/asset/36aac030-9c4d-45df-9332-7bb7bbb340eb" alt="Zepbound vial" />
           </div>
-          <div>
+          <div class="med-info">
             <p class="med-name">Zepbound® (tirzepatide)</p>
             <p class="med-sub">Vial 2.5 mg/0.5 mL</p>
+            <span class="status-chip">
+              <span class="status-chip-dot"></span>
+              Pharmacist reviewing
+            </span>
           </div>
+          <ph-caret-down class="card-caret" id="cardCaret" size="20"></ph-caret-down>
         </div>
-        <!-- Expandable order details -->
-        <div class="order-details" id="orderDetails">
-          <div class="order-detail-divider"></div>
-          <div class="order-detail-row">
-            <span class="order-detail-label">Order #</span>
-            <span class="order-detail-value">LD-2025-489201</span>
+      </div>
+
+      <!-- MEDICATION SELECTOR -->
+      <div class="med-selector" id="medSelector">
+        <div class="med-option active" onclick="closeMedSelector()">
+          <div class="med-option-thumb">
+            <img src="https://www.figma.com/api/mcp/asset/36aac030-9c4d-45df-9332-7bb7bbb340eb" alt="Zepbound" />
           </div>
-          <div class="order-detail-row">
-            <span class="order-detail-label">Ordered</span>
-            <span class="order-detail-value">May 14, 2025</span>
+          <div class="med-option-info">
+            <p class="med-option-name">Zepbound® (tirzepatide)</p>
+            <p class="med-option-sub">Vial 2.5 mg/0.5 mL</p>
           </div>
-          <div class="order-detail-row">
-            <span class="order-detail-label">Est. delivery</span>
-            <span class="order-detail-value">May 21–23, 2025</span>
-          </div>
-          <a href="#" class="order-track-link"><ph-package size="14"></ph-package> Track shipment</a>
+          <ph-check size="18" style="color:var(--red-060)"></ph-check>
         </div>
-        <button class="card-expand-btn" onclick="toggleOrderDetails()">
-          <span id="expandLabel">View details</span>
-          <ph-caret-down class="card-caret" id="cardCaret" size="14"></ph-caret-down>
-        </button>
+        <div class="med-option" onclick="closeMedSelector()">
+          <div class="med-option-thumb" style="background:var(--red-010)">
+            <ph-plus size="20" style="color:var(--red-060)"></ph-plus>
+          </div>
+          <div class="med-option-info">
+            <p class="med-option-name">Add another prescription</p>
+            <p class="med-option-sub add">Get support for a different medicine</p>
+          </div>
+          <ph-arrow-right size="16" style="color:var(--neutral-040)"></ph-arrow-right>
+        </div>
       </div>
 
       <!-- STATUS MESSAGE -->
@@ -1325,31 +1275,25 @@
     });
   });
 
-  // ── Order card more menu ──
-  function toggleMoreMenu(e) {
-    e.stopPropagation();
-    document.getElementById('moreMenu').classList.toggle('open');
+  // ── Medication selector ──
+  function toggleMedSelector() {
+    const selector = document.getElementById('medSelector');
+    const caret = document.getElementById('cardCaret');
+    const isOpen = selector.classList.toggle('open');
+    caret.classList.toggle('open', isOpen);
   }
-  function closeMoreMenu() {
-    document.getElementById('moreMenu').classList.remove('open');
+  function closeMedSelector() {
+    document.getElementById('medSelector').classList.remove('open');
+    document.getElementById('cardCaret').classList.remove('open');
   }
   document.addEventListener('click', function(e) {
-    const menu = document.getElementById('moreMenu');
-    const btn = document.getElementById('moreBtn');
-    if (menu && !menu.contains(e.target) && !btn.contains(e.target)) {
-      menu.classList.remove('open');
+    const card = document.getElementById('orderCard');
+    const selector = document.getElementById('medSelector');
+    if (selector && selector.classList.contains('open') &&
+        !card.contains(e.target) && !selector.contains(e.target)) {
+      closeMedSelector();
     }
   });
-
-  // ── Order card expand/collapse ──
-  function toggleOrderDetails() {
-    const details = document.getElementById('orderDetails');
-    const caret = document.getElementById('cardCaret');
-    const label = document.getElementById('expandLabel');
-    const isOpen = details.classList.toggle('open');
-    caret.classList.toggle('open', isOpen);
-    label.textContent = isOpen ? 'Hide details' : 'View details';
-  }
 </script>
 </body>
 </html>
