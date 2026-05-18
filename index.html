@@ -6,8 +6,7 @@
   <title>LillyDirect — Support Hub</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet" />
-  <!-- Phosphor Icons — matches LDS-3 icon set -->
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet" />
   <script type="module" src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -30,7 +29,6 @@
       --radius-full: 9999px;
       --radius-lg: 32px;
       --radius-md: 16px;
-      --radius-sm: 8px;
     }
 
     html, body {
@@ -43,35 +41,29 @@
     .page {
       width: 375px;
       margin: 0 auto;
-      position: relative;
       background: var(--white);
-      overflow-x: clip; /* clip avoids creating scroll context so child scrolls work */
+      overflow-x: clip;
+      position: relative;
     }
 
     /* ── TOP NAV ── */
     .top-nav {
-      background: linear-gradient(to bottom, #c01210 0%, rgba(192,18,16,0.55) 100%);
+      background: var(--red-010);
       padding: 10px 12px 14px;
       position: sticky;
       top: 0;
       z-index: 100;
     }
     .nav-pill {
-      background: rgba(0,0,0,0.72);
+      background: rgba(10,10,10,0.82);
       border-radius: 32px;
-      height: 52px;
+      height: 56px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       padding: 0 16px;
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
     }
-    .nav-left {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
+    .nav-left { display: flex; align-items: center; gap: 10px; }
     .nav-lilly-script {
       font-family: var(--font-serif);
       font-style: italic;
@@ -88,85 +80,40 @@
       flex-shrink: 0;
     }
     .nav-direct-logo {
-      height: 13px;
+      height: 14px;
       width: auto;
-      object-fit: contain;
       display: block;
     }
-    .nav-right {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-    .nav-icon-btn {
-      display: flex;
-      align-items: center;
-      color: rgba(255,255,255,0.85);
-      cursor: pointer;
-    }
+    .nav-right { display: flex; align-items: center; gap: 12px; }
+    .nav-icon-btn { display: flex; align-items: center; color: rgba(255,255,255,0.85); cursor: pointer; }
     .nav-avatar {
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
+      width: 28px; height: 28px; border-radius: 50%;
       background: rgba(255,255,255,0.15);
       border: 1px solid rgba(255,255,255,0.4);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 10px;
-      font-weight: 700;
-      color: white;
-      letter-spacing: 0.5px;
-      flex-shrink: 0;
-    }
-
-    /* ── BOTTOM NAV ── */
-    .bottom-nav {
-      background: var(--red-060);
-      padding: 10px 0 6px;
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-around;
-    }
-    .bottom-nav-item {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 4px;
-      color: rgba(255,255,255,0.7);
-      font-size: 10px;
-      font-weight: 600;
-      cursor: pointer;
-      flex: 1;
-      font-size: 20px;
-    }
-    .bottom-nav-item span { font-size: 10px; font-weight: 600; }
-    .bottom-nav-item.active { color: white; }
-    .bottom-nav-separator {
-      width: 1px;
-      height: 36px;
-      background: rgba(255,255,255,0.3);
-      align-self: center;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 10px; font-weight: 700; color: white; letter-spacing: 0.5px;
     }
 
     /* ── HEADER ── */
     .header-section {
-      background: linear-gradient(to bottom, rgba(192,18,16,0.45) 0%, var(--red-010) 22%, rgba(249,238,237,0) 75%);
+      background: linear-gradient(to bottom, var(--red-010) 0%, rgba(249,238,237,0) 100%);
       padding-bottom: 0;
     }
     .breadcrumb {
       display: flex;
       align-items: center;
       gap: 6px;
-      padding: 12px 16px 0;
-      font-size: 12px;
+      padding: 16px 16px 0;
+      font-size: 11px;
+      font-weight: 600;
       color: var(--neutral-080);
     }
-    .breadcrumb a { color: var(--red-060); text-decoration: none; }
-    .breadcrumb-sep { color: var(--neutral-040); }
+    .breadcrumb a { color: var(--neutral-100); text-decoration: none; display: flex; align-items: center; gap: 4px; }
+    .breadcrumb-sep { color: var(--neutral-040); font-size: 14px; font-weight: 400; }
+    .breadcrumb-current { text-transform: uppercase; letter-spacing: 0.6px; color: var(--neutral-080); }
     .hero-text {
-      padding: 20px 16px 28px;
-      text-align: left;
+      padding: 32px 16px 48px;
+      text-align: center; /* Figma: text-center on hero content */
     }
     .hero-title {
       font-family: var(--font-serif);
@@ -174,23 +121,29 @@
       line-height: 42px;
       letter-spacing: -0.4px;
       color: var(--neutral-100);
-      margin-bottom: 12px;
+      margin-bottom: 16px;
+      font-weight: 400;
     }
     .hero-subtitle {
       font-size: 16px;
       line-height: 24px;
       color: var(--neutral-080);
+      font-weight: 400;
     }
 
     /* ── SHOWING SUPPORT FOR ── */
     .showing-support {
-      padding: 0 16px 24px;
+      padding: 0 16px 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
     }
     .showing-label {
       font-size: 16px;
       font-weight: 900;
       color: var(--neutral-080);
-      margin-bottom: 4px;
+      line-height: 24px;
+      margin-bottom: -4px;
     }
 
     /* ── ORDER CARD ── */
@@ -198,47 +151,17 @@
       background: var(--white);
       border: 1px solid var(--neutral-040);
       border-radius: var(--radius-md);
-      padding: 14px 16px;
+      padding: 16px;
       box-shadow: 0 2px 4px rgba(52,63,65,0.2);
-      margin-bottom: 4px;
       cursor: pointer;
       transition: box-shadow 0.15s;
     }
     .order-card:hover { box-shadow: 0 4px 10px rgba(52,63,65,0.28); }
-    .order-card-inner {
+    .card-top {
       display: flex;
       align-items: center;
-      gap: 12px;
-    }
-    .med-thumb {
-      width: 52px;
-      height: 52px;
-      background: var(--neutral-010);
-      border-radius: 4px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-      flex-shrink: 0;
-    }
-    .med-thumb img { width: 100%; height: 100%; object-fit: contain; }
-    .med-info { flex: 1; min-width: 0; }
-    .med-name {
-      font-size: 15px;
-      font-weight: 900;
-      line-height: 22px;
-      color: var(--neutral-100);
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-    .med-sub {
-      font-size: 11px;
-      font-weight: 400;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      color: var(--neutral-080);
-      margin-bottom: 5px;
+      justify-content: space-between;
+      margin-bottom: 12px;
     }
     .status-chip {
       display: inline-flex;
@@ -247,478 +170,380 @@
       background: #fff8e1;
       border: 1px solid #f0c43f;
       border-radius: var(--radius-full);
-      padding: 3px 8px;
-      font-size: 11px;
+      padding: 4px 10px;
+      font-size: 12px;
       font-weight: 600;
-      color: #7a5d00;
-    }
-    .status-chip-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: #f0c43f;
-      flex-shrink: 0;
+      color: #7a5400;
     }
     .card-caret {
-      flex-shrink: 0;
       color: var(--neutral-080);
       transition: transform 0.2s;
       display: block;
-      margin-left: 4px;
+      flex-shrink: 0;
     }
     .card-caret.open { transform: rotate(180deg); }
+    .med-content {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .med-thumb {
+      width: 60px; height: 61px;
+      border-radius: 4px;
+      background: var(--neutral-010);
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden; flex-shrink: 0;
+      padding: 2px;
+    }
+    .med-thumb img { width: 100%; height: 100%; object-fit: contain; }
+    .med-info { flex: 1; min-width: 0; }
+    .med-name {
+      font-size: 20px; font-weight: 900; line-height: 30px;
+      color: var(--neutral-100);
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
+    .med-sub {
+      font-size: 14px; font-weight: 400;
+      text-transform: uppercase; letter-spacing: 0.5px;
+      color: var(--neutral-080); margin-top: 2px;
+    }
 
-    /* Medication selector */
+    /* Medication selector dropdown */
     .med-selector {
       display: none;
       background: var(--white);
       border: 1px solid var(--neutral-040);
       border-radius: var(--radius-md);
       overflow: hidden;
-      margin-bottom: 8px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
     .med-selector.open { display: block; }
     .med-option {
-      display: flex;
-      align-items: center;
-      gap: 12px;
+      display: flex; align-items: center; gap: 12px;
       padding: 12px 16px;
       border-bottom: 1px solid var(--neutral-010);
-      cursor: pointer;
-      transition: background 0.1s;
+      cursor: pointer; transition: background 0.1s;
     }
     .med-option:last-child { border-bottom: none; }
     .med-option:hover { background: var(--neutral-010); }
     .med-option.active { background: var(--red-005); }
-    .med-option-thumb {
-      width: 44px;
-      height: 44px;
+    .med-opt-thumb {
+      width: 44px; height: 44px;
       background: var(--neutral-010);
-      border-radius: 4px;
-      overflow: hidden;
-      flex-shrink: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      border-radius: 4px; overflow: hidden; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
     }
-    .med-option-thumb img { width: 100%; height: 100%; object-fit: contain; }
-    .med-option-info { flex: 1; min-width: 0; }
-    .med-option-name {
-      font-size: 14px;
-      font-weight: 700;
-      color: var(--neutral-100);
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-    .med-option-sub {
-      font-size: 11px;
-      color: var(--neutral-080);
-      text-transform: uppercase;
-      letter-spacing: 0.4px;
-      margin-top: 2px;
-    }
-    .med-option-sub.add { text-transform: none; font-style: italic; letter-spacing: 0; }
+    .med-opt-thumb img { width: 100%; height: 100%; object-fit: contain; }
+    .med-opt-info { flex: 1; min-width: 0; }
+    .med-opt-name { font-size: 14px; font-weight: 700; color: var(--neutral-100); }
+    .med-opt-sub { font-size: 11px; text-transform: uppercase; letter-spacing: 0.4px; color: var(--neutral-080); margin-top: 2px; }
+    .med-opt-sub.add { text-transform: none; font-style: italic; letter-spacing: 0; }
 
-    /* ── STATUS MSG ── */
+    /* ── STATUS MESSAGE ── */
     .status-msg {
       background: var(--gold-005);
       border-radius: var(--radius-md);
-      padding: 12px 16px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
     }
     .status-msg-row {
-      display: flex;
-      align-items: flex-start;
-      gap: 8px;
+      display: flex; align-items: center; gap: 8px;
     }
-    .status-msg-icon { flex-shrink: 0; color: var(--gold-070); margin-top: 1px; font-size: 20px; display: flex; }
+    .status-msg-icon { flex-shrink: 0; color: var(--gold-070); display: flex; align-items: center; }
     .status-msg-label {
-      font-size: 14px;
-      font-weight: 900;
-      color: var(--gold-070);
-      line-height: 20px;
+      font-size: 14px; font-weight: 900;
+      color: var(--gold-070); line-height: 20px;
     }
     .status-msg-sub {
-      font-size: 14px;
-      color: var(--gold-070);
-      line-height: 20px;
-      margin-top: 4px;
-      padding-left: 32px;
+      font-size: 14px; color: var(--gold-070);
+      line-height: 20px; padding-left: 32px;
     }
-
-    /* ── SECTION SPACER ── */
-    .section { padding: 40px 0 0; }
 
     /* ── GETTING STARTED ── */
-    .getting-started { padding: 0 0 40px; }
+    .getting-started {
+      background: var(--white);
+      padding: 48px 0;
+    }
     .gs-title {
       font-family: var(--font-serif);
-      font-size: 36px;
-      line-height: 40px;
-      letter-spacing: -0.36px;
-      color: var(--neutral-100);
+      font-size: 36px; line-height: 40px;
+      letter-spacing: -0.36px; color: var(--neutral-100);
+      padding: 0 16px; margin-bottom: 24px; font-weight: 400;
+    }
+    .gs-select-wrap {
       padding: 0 16px;
-      margin-bottom: 16px;
+      margin-bottom: 24px;
+      position: relative;
     }
-
-    /* CHIP SCROLL */
-    .chip-scroll-wrap {
-      overflow-x: auto;
-      padding: 0 16px 4px;
-      margin-bottom: 16px;
-      -ms-overflow-style: none;
-      scrollbar-width: none;
+    .gs-select-label {
+      font-size: 12px; font-weight: 600; color: var(--neutral-080);
+      margin-bottom: 4px; display: block;
     }
-    .chip-scroll-wrap::-webkit-scrollbar { display: none; }
-    .chip-row {
-      display: flex;
-      gap: 12px;
-      white-space: nowrap;
-      width: max-content;
-    }
-    .chip {
-      display: inline-flex;
-      align-items: center;
-      padding: 8px 16px;
-      border-radius: var(--radius-full);
+    .gs-select-box {
+      width: 100%;
+      border: 1px solid var(--neutral-040);
+      border-radius: 8px;
+      padding: 14px 40px 14px 14px;
       font-size: 16px;
-      line-height: 24px;
+      font-family: var(--font-sans);
+      color: var(--neutral-100);
+      background: var(--white);
+      appearance: none; -webkit-appearance: none;
       cursor: pointer;
-      border: none;
-      transition: background 0.15s;
-      white-space: nowrap;
     }
-    .chip.active {
-      background: var(--red-060);
-      color: white;
+    .gs-select-box:focus { outline: 2px solid var(--red-060); outline-offset: 2px; }
+    .gs-select-caret {
+      position: absolute; right: 28px; bottom: 17px;
+      pointer-events: none; color: var(--neutral-100);
     }
-    .chip:not(.active) {
-      background: var(--red-010);
-      color: var(--neutral-100);
+    .gs-faqs { padding: 0 16px; }
+    .gs-faq-item { border-top: 1px solid var(--neutral-040); padding: 16px 0; }
+    .gs-faq-q {
+      font-size: 14px; font-weight: 900;
+      color: var(--neutral-080); line-height: 20px; margin-bottom: 8px;
+    }
+    .gs-faq-a {
+      font-size: 16px; color: var(--neutral-100);
+      line-height: 24px; font-weight: 400;
     }
 
-    /* FAQ ITEMS */
-    .faq-section-header {
-      font-size: 20px;
-      font-weight: 900;
-      line-height: 26px;
-      color: var(--neutral-100);
-      padding: 0 16px;
-      margin-bottom: 4px;
-    }
-    .faq-sub-label {
-      font-size: 16px;
-      line-height: 24px;
-      color: var(--neutral-080);
-      padding: 0 16px;
-      margin-bottom: 16px;
-    }
-    .faq-list { padding: 0 16px; display: flex; flex-direction: column; gap: 0; }
-    .faq-item {
-      border-top: 1px solid var(--neutral-040);
-      padding: 16px 0;
-    }
-    .faq-q {
-      font-size: 14px;
-      font-weight: 900;
-      color: var(--neutral-080);
-      line-height: 20px;
-      margin-bottom: 8px;
-    }
-    .faq-a {
-      font-size: 16px;
-      color: var(--neutral-100);
-      line-height: 24px;
-    }
+    /* FAQ group visibility */
+    .gs-faq-group { display: none; }
+    .gs-faq-group.active { display: block; }
 
     /* ── PAYING SECTION ── */
     .paying-section {
       background: linear-gradient(to bottom, rgba(251,245,244,0), var(--red-010));
-      padding: 72px 16px;
+      padding: 48px 16px;
     }
-    .paying-icon { margin-bottom: 16px; font-size: 48px; color: var(--red-060); }
+    .paying-icon-wrap {
+      width: 48px; height: 48px;
+      color: var(--red-060); font-size: 48px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 24px;
+    }
     .paying-title {
       font-family: var(--font-serif);
-      font-size: 36px;
-      line-height: 44px;
-      letter-spacing: -0.36px;
-      color: var(--neutral-100);
-      margin-bottom: 24px;
+      font-size: 36px; line-height: 44px;
+      letter-spacing: -0.36px; color: var(--neutral-100);
+      margin-bottom: 24px; font-weight: 400;
     }
     .paying-divider {
-      border: none;
-      border-top: 1px solid var(--neutral-040);
-      margin: 0 0 24px;
+      border: none; border-top: 1px solid var(--neutral-040); margin-bottom: 24px;
     }
     .payment-method {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      margin-bottom: 24px;
+      display: flex; flex-direction: column; gap: 16px; margin-bottom: 24px;
     }
-    .payment-method-icon {
-      width: 32px;
-      height: 32px;
-      flex-shrink: 0;
-      color: var(--red-060);
-      margin-top: 2px;
-      font-size: 32px;
-      display: flex;
-      align-items: center;
+    .payment-method:last-child { margin-bottom: 0; }
+    .payment-icon {
+      width: 32px; height: 32px;
+      color: var(--red-060); font-size: 32px;
+      display: flex; align-items: center;
     }
-    .payment-method-title {
-      font-size: 20px;
-      font-weight: 900;
-      color: var(--neutral-100);
-      line-height: 30px;
-      margin-bottom: 4px;
+    .payment-title {
+      font-size: 20px; font-weight: 900;
+      color: var(--neutral-100); line-height: 30px; margin-bottom: 4px;
     }
-    .payment-method-desc {
-      font-size: 16px;
-      color: var(--neutral-080);
-      line-height: 24px;
+    .payment-desc {
+      font-size: 16px; color: var(--neutral-080); line-height: 24px; font-weight: 400;
     }
 
     /* ── RESOURCE CARDS ── */
-    .resources-section {
+    .resource-section {
       background: var(--red-010);
-      padding: 72px 16px;
+      padding: 48px 16px;
     }
-    .resources-eyebrow {
-      font-size: 12px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: var(--neutral-100);
-      margin-bottom: 12px;
+    .resource-eyebrow {
+      font-size: 12px; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 1px;
+      color: var(--neutral-100); margin-bottom: 12px;
     }
-    .resources-title {
+    .resource-hero-title {
       font-family: var(--font-serif);
-      font-size: 36px;
-      line-height: 42px;
-      letter-spacing: -0.4px;
-      color: var(--neutral-100);
-      margin-bottom: 48px;
+      font-size: 40px; line-height: 42px;
+      letter-spacing: -0.4px; color: var(--neutral-100);
+      margin-bottom: 48px; font-weight: 400;
     }
-    .resources-title em {
+    .resource-hero-title em {
       font-style: italic;
       color: var(--red-060);
-      font-size: 48px;
+      font-size: 56px;
+      line-height: 62px;
+      letter-spacing: -0.56px;
     }
     .resource-card {
       border-radius: var(--radius-lg);
       padding: 32px;
       margin-bottom: 24px;
     }
-    .resource-card.dark { background: var(--red-060); color: white; }
+    .resource-card:last-child { margin-bottom: 0; }
+    .resource-card.dark { background: var(--red-060); }
     .resource-card.light { background: var(--white); }
     .resource-chip {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
+      display: inline-flex; align-items: center; gap: 6px;
       background: rgba(255,255,255,0.2);
       border-radius: var(--radius-full);
       padding: 4px 12px;
-      font-size: 12px;
-      font-weight: 600;
-      color: white;
-      margin-bottom: 24px;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
+      font-size: 12px; font-weight: 600; color: white;
+      margin-bottom: 32px; text-transform: uppercase; letter-spacing: 0.5px;
+    }
+    .resource-card-icon {
+      font-size: 48px; margin-bottom: 16px;
+      color: var(--red-060); display: block;
     }
     .resource-card-title {
-      font-size: 28px;
-      font-weight: 400;
-      line-height: 36px;
-      letter-spacing: -0.56px;
-      margin-bottom: 12px;
+      font-size: 32px; font-weight: 400;
+      line-height: 38px; letter-spacing: -0.64px;
+      margin-bottom: 16px;
     }
     .resource-card.dark .resource-card-title { color: white; }
     .resource-card.light .resource-card-title { color: var(--neutral-100); }
     .resource-card-desc {
-      font-size: 18px;
-      line-height: 28px;
-      margin-bottom: 32px;
+      font-size: 18px; line-height: 28px; margin-bottom: 32px; font-weight: 400;
     }
     .resource-card.dark .resource-card-desc { color: rgba(255,255,255,0.85); }
     .resource-card.light .resource-card-desc { color: var(--neutral-080); }
-    .resource-card-icon {
-      font-size: 48px;
-      margin-bottom: 16px;
-      color: var(--red-060);
-      display: block;
-    }
     .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 12px 24px;
-      border-radius: 24px;
-      font-size: 16px;
-      font-weight: 600;
-      cursor: pointer;
-      border: none;
-      transition: opacity 0.15s;
-      text-decoration: none;
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 12px 24px; border-radius: 24px;
+      font-size: 16px; font-weight: 400; cursor: pointer;
+      border: none; transition: opacity 0.15s; text-decoration: none;
+      font-family: var(--font-sans);
     }
-    .btn:hover { opacity: 0.9; }
+    .btn:hover { opacity: 0.88; }
     .btn-outline-white {
-      border: 1.5px solid white;
-      background: transparent;
-      color: white;
+      border: 1.5px solid white; background: transparent; color: white;
     }
-    .btn-red {
-      background: var(--red-060);
-      color: white;
-    }
+    .btn-red { background: var(--red-060); color: white; border: none; }
 
-    /* ── FAQ FULL SECTION ── */
+    /* ── FAQ SECTION ── */
     .faq-full {
       background: var(--white);
-      padding: 72px 16px;
+      padding: 48px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 48px;
     }
     .faq-full-title {
       font-family: var(--font-serif);
-      font-size: 36px;
-      line-height: 40px;
-      letter-spacing: -0.36px;
-      color: var(--neutral-100);
-      margin-bottom: 16px;
+      font-size: 36px; line-height: 40px;
+      letter-spacing: -0.36px; color: var(--neutral-100);
+      font-weight: 400; margin-bottom: 0;
     }
-    .faq-category-title {
-      font-family: var(--font-serif);
-      font-size: 24px;
-      line-height: 32px;
-      color: var(--neutral-100);
-      margin-bottom: 12px;
-      margin-top: 32px;
-    }
-    .faq-category-label {
-      font-size: 14px;
-      font-weight: 900;
-      color: var(--neutral-080);
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      padding: 24px 0 12px;
-      border-top: 1px solid var(--neutral-040);
+    .faq-section-heading {
+      font-size: 24px; font-weight: 400; line-height: 32px;
+      color: var(--neutral-100); margin-bottom: 16px;
     }
 
-    /* ACCORDION */
-    .accordion {
+    /* Chip scroll */
+    .chip-scroll-wrap {
+      overflow-x: auto; margin-bottom: 16px;
+      -ms-overflow-style: none; scrollbar-width: none;
+    }
+    .chip-scroll-wrap::-webkit-scrollbar { display: none; }
+    .chip-row { display: flex; gap: 12px; white-space: nowrap; width: max-content; }
+    .chip {
+      display: inline-flex; align-items: center;
+      padding: 8px 16px; border-radius: var(--radius-full);
+      font-size: 16px; line-height: 24px;
+      cursor: pointer; border: none; transition: background 0.15s;
+      white-space: nowrap; font-family: var(--font-sans);
+    }
+    .chip.active { background: var(--red-060); color: white; }
+    .chip:not(.active) { background: var(--red-005); color: var(--neutral-100); }
+
+    /* Accordion groups */
+    .faq-accordion-section { margin-bottom: 0; }
+    .faq-category-label {
+      font-size: 16px; font-weight: 900;
+      color: var(--neutral-080); text-transform: uppercase;
+      letter-spacing: 0.5px; padding: 24px 0 12px;
       border-top: 1px solid var(--neutral-040);
     }
     .accordion-item { border-bottom: 1px solid var(--neutral-040); }
     .accordion-trigger {
-      width: 100%;
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 12px;
-      padding: 16px 0;
-      background: none;
-      border: none;
-      cursor: pointer;
-      text-align: left;
+      width: 100%; display: flex; align-items: flex-start;
+      justify-content: space-between; gap: 12px;
+      padding: 16px 0; background: none; border: none;
+      cursor: pointer; text-align: left;
     }
     .accordion-trigger-text {
-      font-size: 14px;
-      font-weight: 900;
-      color: var(--neutral-080);
-      line-height: 20px;
-      flex: 1;
+      font-size: 14px; font-weight: 900;
+      color: var(--neutral-080); line-height: 20px; flex: 1;
     }
     .accordion-icon {
-      flex-shrink: 0;
-      margin-top: 2px;
-      transition: transform 0.2s;
-      color: var(--neutral-080);
-      display: block;
-      font-size: 18px;
+      flex-shrink: 0; margin-top: 2px;
+      transition: transform 0.2s; color: var(--neutral-080);
+      display: block; font-size: 18px;
     }
     .accordion-item.open .accordion-icon { transform: rotate(180deg); }
     .accordion-body {
-      display: none;
-      padding: 0 0 16px;
-      font-size: 16px;
-      line-height: 24px;
-      color: var(--neutral-100);
+      display: none; padding: 0 0 16px;
+      font-size: 16px; line-height: 24px; color: var(--neutral-100);
     }
     .accordion-item.open .accordion-body { display: block; }
+
+    /* FAQ groups visibility */
+    .faq-group { display: none; }
+    .faq-group.visible { display: block; }
 
     /* ── FEEDBACK BANNER ── */
     .feedback-banner {
       background: var(--red-090);
-      padding: 64px 24px;
-      text-align: center;
+      padding: 48px 24px;
+      display: flex; flex-direction: column; gap: 64px; align-items: center;
+    }
+    .feedback-text {
+      display: flex; flex-direction: column; gap: 16px; align-items: center; width: 100%;
     }
     .feedback-title {
       font-family: var(--font-serif);
-      font-size: 40px;
-      line-height: 42px;
-      letter-spacing: -0.4px;
-      color: white;
-      margin-bottom: 16px;
+      font-size: 40px; line-height: 42px;
+      letter-spacing: -0.4px; color: white;
+      margin-bottom: 0; font-weight: 400; text-align: center;
     }
     .feedback-subtitle {
-      font-size: 20px;
-      line-height: 30px;
-      color: rgba(255,255,255,0.85);
-      margin-bottom: 32px;
+      font-size: 20px; line-height: 30px;
+      color: rgba(255,255,255,0.85); font-weight: 400; text-align: center;
     }
-    .feedback-buttons { display: flex; flex-direction: column; gap: 16px; }
+    .feedback-buttons { display: flex; flex-direction: column; gap: 24px; width: 100%; }
     .btn-outline-white-full {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-      width: 100%;
-      padding: 12px 24px;
-      border: 1.5px solid white;
-      border-radius: var(--radius-full);
-      background: transparent;
-      color: white;
-      font-size: 20px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: background 0.15s;
+      display: flex; align-items: center; justify-content: center; gap: 12px;
+      width: 100%; padding: 12px 24px;
+      border: 1.5px solid white; border-radius: var(--radius-full);
+      background: transparent; color: white;
+      font-size: 20px; font-weight: 400; cursor: pointer;
+      transition: background 0.15s; font-family: var(--font-sans);
     }
     .btn-outline-white-full:hover { background: rgba(255,255,255,0.1); }
 
     /* ── SUPPORT BANNER ── */
     .support-banner {
       background: var(--stone-005);
-      padding: 72px 16px;
-      text-align: center;
+      padding: 48px 16px;
     }
     .support-eyebrow {
-      font-size: 13px;
-      font-weight: 900;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: var(--neutral-100);
-      margin-bottom: 12px;
+      font-size: 14px; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 1px;
+      color: var(--neutral-100); margin-bottom: 12px;
+      font-family: var(--font-sans);
     }
     .support-title {
       font-family: var(--font-serif);
-      font-size: 36px;
-      line-height: 44px;
-      letter-spacing: -0.36px;
-      color: var(--neutral-100);
-      margin-bottom: 16px;
+      font-size: 36px; line-height: 44px;
+      letter-spacing: -0.36px; color: var(--neutral-100);
+      margin-bottom: 8px; font-weight: 400;
     }
     .support-body {
-      font-size: 14px;
-      line-height: 20px;
-      color: var(--neutral-100);
-      margin-bottom: 4px;
+      font-size: 14px; line-height: 1.4; color: var(--neutral-100);
+      margin-bottom: 4px; font-weight: 400;
     }
     .support-phone {
-      font-size: 20px;
-      font-weight: 700;
-      color: var(--red-060);
-      text-decoration: underline;
-      cursor: pointer;
+      font-size: 20px; font-weight: 900; color: var(--red-060);
+      text-decoration: underline; cursor: pointer;
+      display: block; margin-top: 4px;
     }
 
     /* ── FOOTER ── */
@@ -728,134 +553,68 @@
       color: white;
     }
     .footer-top {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding-bottom: 24px;
+      display: flex; align-items: center; justify-content: space-between;
+      padding-bottom: 16px;
       border-bottom: 1px solid rgba(255,255,255,0.2);
       margin-bottom: 24px;
     }
-    .footer-logo {
-      font-size: 16px;
-      font-weight: 900;
-      color: white;
-      letter-spacing: 0.5px;
-    }
-    .footer-socials { display: flex; gap: 16px; align-items: center; font-size: 20px; color: white; }
+    .footer-logo img { height: 28px; width: auto; }
+    .footer-socials { display: flex; gap: 16px; align-items: center; }
+    .footer-socials img { width: 24px; height: 24px; }
     .footer-heading {
-      font-size: 18px;
-      font-weight: 900;
-      color: white;
-      margin-bottom: 8px;
+      font-size: 18px; font-weight: 900; color: white; margin-bottom: 12px;
     }
     .footer-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px 16px;
-      margin-bottom: 20px;
+      display: flex; flex-wrap: wrap; gap: 6px 16px; margin-bottom: 20px;
     }
     .footer-links a {
-      font-size: 12px;
-      color: rgba(255,255,255,0.85);
-      text-decoration: none;
+      font-size: 12px; color: rgba(255,255,255,0.85); text-decoration: none;
     }
     .footer-links a:hover { text-decoration: underline; }
-    .footer-legal {
-      font-size: 12px;
-      line-height: 1.5;
-      color: rgba(255,255,255,0.7);
-      margin-top: 16px;
-    }
-    .footer-legal a { color: rgba(255,255,255,0.85); }
     .footer-privacy {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      background: rgba(0,0,0,0.2);
-      border-radius: 30px;
-      padding: 8px 12px;
-      margin: 12px 0;
+      display: flex; align-items: center; justify-content: space-between;
+      background: rgba(0,0,0,0.3); border-radius: 30px;
+      padding: 8px 12px; margin: 8px 0 16px;
     }
     .footer-privacy-left { display: flex; align-items: center; gap: 8px; }
-    .privacy-badge {
-      background: rgba(255,255,255,0.15);
-      border: 1px solid white;
-      border-radius: 10px;
-      font-size: 8px;
-      font-weight: 700;
-      color: white;
-      padding: 2px 6px;
-      letter-spacing: 0.5px;
-    }
+    .privacy-badge-img { height: 16px; width: auto; border-radius: 4px; }
     .footer-privacy a, .footer-privacy span {
-      font-size: 12px;
-      color: rgba(255,255,255,0.9);
-      text-decoration: underline;
+      font-size: 12px; color: rgba(255,255,255,0.9); text-decoration: underline; cursor: pointer;
     }
+    .footer-view-all {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 8px;
+    }
+    .footer-view-all a { font-size: 12px; color: rgba(255,255,255,0.85); text-decoration: none; }
+    .footer-view-all a:hover { text-decoration: underline; }
+    .footer-legal {
+      font-size: 12px; line-height: 1.4; color: rgba(255,255,255,0.7); margin-top: 16px;
+    }
+    .footer-legal a { color: rgba(255,255,255,0.85); }
 
-    /* ── FLOAT CHAT ── */
+    /* ── FLOAT CHAT FAB ── */
     .chat-fab {
-      position: fixed;
-      right: 16px;
-      bottom: 80px;
-      width: 64px;
-      height: 64px;
-      background: var(--red-060);
-      border-radius: 24px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      position: fixed; right: calc(50% - 375px/2 + 16px); bottom: 80px;
+      width: 64px; height: 64px;
+      background: var(--red-060); border-radius: 24px;
+      display: flex; align-items: center; justify-content: center;
       box-shadow: 0 10px 15px rgba(0,0,0,0.15), 0 4px 6px rgba(0,0,0,0.1);
-      cursor: pointer;
-      z-index: 50;
-      border: none;
-      transition: transform 0.15s;
-      font-size: 28px;
-      color: white;
+      cursor: pointer; z-index: 50; border: none;
+      transition: transform 0.15s; font-size: 28px; color: white;
     }
     .chat-fab:hover { transform: scale(1.05); }
-
-    /* FILTER TABS */
-    .filter-row {
-      display: flex;
-      gap: 8px;
-      padding: 0 16px 24px;
-      overflow-x: auto;
-      -ms-overflow-style: none;
-      scrollbar-width: none;
-    }
-    .filter-row::-webkit-scrollbar { display: none; }
-    .filter-chip {
-      padding: 6px 14px;
-      border-radius: var(--radius-full);
-      font-size: 14px;
-      font-weight: 600;
-      cursor: pointer;
-      border: none;
-      white-space: nowrap;
-      transition: background 0.15s, color 0.15s;
-    }
-    .filter-chip.active { background: var(--red-060); color: white; }
-    .filter-chip:not(.active) { background: var(--red-005); color: var(--neutral-100); }
-
-    .faq-group { display: none; }
-    .faq-group.visible { display: block; }
   </style>
 </head>
 <body>
 <div class="page">
 
-  <!-- TOP NAV — dark floating pill over red gradient -->
+  <!-- TOP NAV — dark pill on light pink -->
   <nav class="top-nav">
     <div class="nav-pill">
       <div class="nav-left">
-        <!-- Lilly script wordmark approximation -->
         <span class="nav-lilly-script">Lilly</span>
         <div class="nav-divider"></div>
-        <!-- DIRECT brand wordmark from Figma -->
-        <img class="nav-direct-logo"
-             src="https://www.figma.com/api/mcp/asset/ea815497-60ba-483d-9ed2-123d7d165000"
-             alt="Direct" />
+        <img class="nav-direct-logo" src="assets/direct-logo.svg" alt="Direct" />
         <span class="nav-icon-btn" style="margin-left:2px">
           <ph-list size="20" color="white"></ph-list>
         </span>
@@ -867,370 +626,352 @@
     </div>
   </nav>
 
-  <!-- BOTTOM NAV BAR -->
-  <div class="bottom-nav">
-    <div class="bottom-nav-item active">
-      <ph-house weight="fill" size="20"></ph-house>
-      <span>Home</span>
-    </div>
-    <div class="bottom-nav-separator"></div>
-    <div class="bottom-nav-item">
-      <ph-clipboard-text size="20"></ph-clipboard-text>
-      <span>Orders</span>
-    </div>
-    <div class="bottom-nav-separator"></div>
-    <div class="bottom-nav-item">
-      <ph-lifebuoy size="20"></ph-lifebuoy>
-      <span>Support</span>
-    </div>
-    <div class="bottom-nav-separator"></div>
-    <div class="bottom-nav-item">
-      <ph-user-circle size="20"></ph-user-circle>
-      <span>Account</span>
-    </div>
-  </div>
-
-  <!-- HEADER -->
+  <!-- HEADER SECTION -->
   <div class="header-section">
+
+    <!-- Breadcrumb -->
     <div class="breadcrumb">
-      <a href="#">Home</a>
-      <span class="breadcrumb-sep">›</span>
-      <span>Support Hub</span>
+      <a href="#"><ph-house size="14"></ph-house> Home</a>
+      <span class="breadcrumb-sep">/</span>
+      <span class="breadcrumb-current">Support Hub</span>
     </div>
+
+    <!-- Hero — CENTER aligned per Figma -->
     <div class="hero-text">
       <h1 class="hero-title">Good afternoon, Danielle</h1>
       <p class="hero-subtitle">You're in the right place. Find answers, track your orders, and get the support you need for your treatment</p>
     </div>
 
-    <!-- SHOWING SUPPORT FOR -->
+    <!-- Showing support for -->
     <div class="showing-support">
       <p class="showing-label">Showing support for</p>
 
-      <!-- ORDER CARD — tap to switch medication -->
+      <!-- Order card — tap to toggle medication selector -->
       <div class="order-card" id="orderCard" onclick="toggleMedSelector()">
-        <div class="order-card-inner">
+        <div class="card-top">
+          <span class="status-chip">Pharmacist reviewing</span>
+          <ph-caret-down class="card-caret" id="cardCaret" size="20"></ph-caret-down>
+        </div>
+        <div class="med-content">
           <div class="med-thumb">
-            <img src="https://www.figma.com/api/mcp/asset/36aac030-9c4d-45df-9332-7bb7bbb340eb" alt="Zepbound vial" />
+            <img src="assets/zepbound-thumb.png" alt="Zepbound vial" />
           </div>
           <div class="med-info">
             <p class="med-name">Zepbound® (tirzepatide)</p>
             <p class="med-sub">Vial 2.5 mg/0.5 mL</p>
-            <span class="status-chip">
-              <span class="status-chip-dot"></span>
-              Pharmacist reviewing
-            </span>
           </div>
-          <ph-caret-down class="card-caret" id="cardCaret" size="20"></ph-caret-down>
         </div>
       </div>
 
-      <!-- MEDICATION SELECTOR -->
+      <!-- Medication selector -->
       <div class="med-selector" id="medSelector">
         <div class="med-option active" onclick="closeMedSelector()">
-          <div class="med-option-thumb">
-            <img src="https://www.figma.com/api/mcp/asset/36aac030-9c4d-45df-9332-7bb7bbb340eb" alt="Zepbound" />
+          <div class="med-opt-thumb">
+            <img src="assets/zepbound-thumb.png" alt="Zepbound" />
           </div>
-          <div class="med-option-info">
-            <p class="med-option-name">Zepbound® (tirzepatide)</p>
-            <p class="med-option-sub">Vial 2.5 mg/0.5 mL</p>
+          <div class="med-opt-info">
+            <p class="med-opt-name">Zepbound® (tirzepatide)</p>
+            <p class="med-opt-sub">Vial 2.5 mg/0.5 mL</p>
           </div>
-          <ph-check size="18" style="color:var(--red-060)"></ph-check>
+          <ph-check size="18" style="color:var(--red-060);flex-shrink:0"></ph-check>
         </div>
         <div class="med-option" onclick="closeMedSelector()">
-          <div class="med-option-thumb" style="background:var(--red-010)">
+          <div class="med-opt-thumb" style="background:var(--red-010)">
             <ph-plus size="20" style="color:var(--red-060)"></ph-plus>
           </div>
-          <div class="med-option-info">
-            <p class="med-option-name">Add another prescription</p>
-            <p class="med-option-sub add">Get support for a different medicine</p>
+          <div class="med-opt-info">
+            <p class="med-opt-name">Add another prescription</p>
+            <p class="med-opt-sub add">Get support for a different medicine</p>
           </div>
-          <ph-arrow-right size="16" style="color:var(--neutral-040)"></ph-arrow-right>
+          <ph-arrow-right size="16" style="color:var(--neutral-040);flex-shrink:0"></ph-arrow-right>
         </div>
       </div>
 
-      <!-- STATUS MESSAGE -->
+      <!-- Status message -->
       <div class="status-msg">
         <div class="status-msg-row">
-          <span class="status-msg-icon">
-            <ph-clock size="20" style="color:#644d00"></ph-clock>
-          </span>
+          <span class="status-msg-icon"><ph-clock size="20"></ph-clock></span>
           <p class="status-msg-label">Most reviews are completed within 1 business day.</p>
         </div>
         <p class="status-msg-sub">We'll notify you when it's ready.</p>
       </div>
     </div>
-  </div>
+  </div><!-- /header-section -->
 
   <!-- ── GETTING STARTED ── -->
-  <div class="section">
-    <div class="getting-started">
-      <h2 class="gs-title">Getting started</h2>
+  <section class="getting-started">
+    <h2 class="gs-title">Getting started</h2>
 
-      <!-- CHIP SELECTOR — scrollable row -->
-      <div class="chip-scroll-wrap">
-        <div class="chip-row" id="gs-chips">
-          <button class="chip active" data-filter="account">Account &amp; General Info</button>
-          <button class="chip" data-filter="ordering">Ordering</button>
-          <button class="chip" data-filter="delivery">Delivery &amp; Retail Pickup</button>
+    <!-- Topic select dropdown (LDS-3 Select) -->
+    <div class="gs-select-wrap">
+      <span class="gs-select-label">Choose a topic</span>
+      <select class="gs-select-box" id="gsSelect" onchange="switchGsTopic(this.value)">
+        <option value="account">Account &amp; General Info</option>
+        <option value="ordering">Ordering</option>
+        <option value="delivery">Delivery &amp; Retail Pickup</option>
+      </select>
+      <span class="gs-select-caret"><ph-caret-down size="18"></ph-caret-down></span>
+    </div>
+
+    <div class="gs-faqs">
+      <!-- Account & General Info FAQs -->
+      <div class="gs-faq-group active" id="gs-account">
+        <div class="gs-faq-item">
+          <p class="gs-faq-q">How do LillyDirect's pharmacy services work?</p>
+          <p class="gs-faq-a">LillyDirect is a different kind of pharmacy experience. We work with licensed third-party pharmacy service providers to give you personalized access to a convenient pharmacy experience. We provide free home delivery for all medicines and retail pickup options for select medicines.</p>
+        </div>
+        <div class="gs-faq-item">
+          <p class="gs-faq-q">Where can I update my preferences and account information?</p>
+          <p class="gs-faq-a">Update your account information, contact details, and preferences in your LillyDirect account settings. For support, call 1-844-LLYDIR1 (1-844-559-3471).</p>
+        </div>
+        <div class="gs-faq-item">
+          <p class="gs-faq-q">What makes LillyDirect different from other mail order or direct ship pharmacies?</p>
+          <p class="gs-faq-a">LillyDirect's pharmacy fulfillment options provide convenient delivery options, savings guidance and resources, and support with prior authorizations.</p>
+        </div>
+        <div class="gs-faq-item">
+          <p class="gs-faq-q">How do I re-enable text messages from LillyDirect Pharmacy after I replied STOP?</p>
+          <p class="gs-faq-a">Check your text messages. If you still have the SMS thread where you replied "STOP," you can text "START" to update. If you don't have the SMS thread, go to your LillyDirect account settings, click communication channel preferences, and select "Text" to update.</p>
+        </div>
+        <div class="gs-faq-item">
+          <p class="gs-faq-q">You just received my prescription. What can I expect next?</p>
+          <p class="gs-faq-a">Your prescription will be reviewed to confirm required information is complete. Then, you'll receive a message with next steps. If additional information is needed, you may be contacted to update details.</p>
         </div>
       </div>
-
-      <div class="faq-list">
-        <div class="faq-item gs-item account">
-          <p class="faq-q">How do LillyDirect's pharmacy services work?</p>
-          <p class="faq-a">LillyDirect is a different kind of pharmacy experience. We work with licensed third-party pharmacy service providers to give you personalized access to a convenient pharmacy experience.<br/><br/>We provide free home delivery for all medicines and retail pickup options for select medicines.</p>
+      <!-- Ordering FAQs -->
+      <div class="gs-faq-group" id="gs-ordering">
+        <div class="gs-faq-item">
+          <p class="gs-faq-q">How do I place my first order?</p>
+          <p class="gs-faq-a">After your prescriber sends a prescription to LillyDirect, you'll receive a text or email with instructions to complete your order. Follow the link to select your delivery or pickup preference and complete payment.</p>
         </div>
-        <div class="faq-item gs-item account">
-          <p class="faq-q">Where can I update my preferences and account information?</p>
-          <p class="faq-a">Update your account information, contact details, and preferences in your LillyDirect account settings. For support, call 1-844-LLYDIR1 (1-844-559-3471).</p>
+        <div class="gs-faq-item">
+          <p class="gs-faq-q">Can I cancel or modify an order after it's placed?</p>
+          <p class="gs-faq-a">Contact LillyDirect support at 1-844-559-3471 as soon as possible. Changes may not be possible once an order has been filled or shipped.</p>
         </div>
-        <div class="faq-item gs-item account">
-          <p class="faq-q">What makes LillyDirect different from other mail order or direct ship pharmacies?</p>
-          <p class="faq-a">LillyDirect's pharmacy fulfillment options provide convenient delivery options, savings guidance and resources, and support with prior authorizations.</p>
+      </div>
+      <!-- Delivery & Retail Pickup FAQs -->
+      <div class="gs-faq-group" id="gs-delivery">
+        <div class="gs-faq-item">
+          <p class="gs-faq-q">How long does delivery take?</p>
+          <p class="gs-faq-a">Most home deliveries arrive within 3–5 business days after your order is placed and your prescription is verified.</p>
         </div>
-        <div class="faq-item gs-item account">
-          <p class="faq-q">How do I re-enable text messages from LillyDirect Pharmacy after I replied STOP?</p>
-          <p class="faq-a">Check your text messages. If you still have the SMS thread where you replied "STOP," you can text "START" to update. If you do not have the SMS thread, go to your LillyDirect account settings, click communication channel preferences, and select "Text" to update.</p>
-        </div>
-        <div class="faq-item gs-item account">
-          <p class="faq-q">You just received my prescription. What can I expect next?</p>
-          <p class="faq-a">Your prescription will be reviewed to confirm required information is complete. Then, you'll receive a message with next steps. If additional information is needed, you may be contacted to update details.</p>
-        </div>
-        <!-- Ordering items -->
-        <div class="faq-item gs-item ordering" style="display:none">
-          <p class="faq-q">How do I place an order?</p>
-          <p class="faq-a">Sign in to your LillyDirect account and navigate to your prescriptions page. Select the medicine you'd like to order and follow the on-screen steps to complete your order.</p>
-        </div>
-        <div class="faq-item gs-item ordering" style="display:none">
-          <p class="faq-q">Can I schedule a future order?</p>
-          <p class="faq-a">Yes. Once your prescription is approved, you can schedule refill orders in advance through your account dashboard.</p>
-        </div>
-        <!-- Delivery items -->
-        <div class="faq-item gs-item delivery" style="display:none">
-          <p class="faq-q">How long does delivery take?</p>
-          <p class="faq-a">Standard home delivery typically takes 2–5 business days after your order is processed. You'll receive tracking information once your order ships.</p>
-        </div>
-        <div class="faq-item gs-item delivery" style="display:none">
-          <p class="faq-q">Which retail pharmacies support pickup?</p>
-          <p class="faq-a">Retail pickup is available at select pharmacy partners. Check the app or website for pharmacies near you that carry your medicine.</p>
+        <div class="gs-faq-item">
+          <p class="gs-faq-q">Which retail pickup locations are available?</p>
+          <p class="gs-faq-a">Select Walmart locations offer retail pickup for Zepbound. After choosing pickup at checkout, LillyDirect will transfer your prescription within 1–2 business days. Walmart will then prepare your prescription within an additional 1–2 business days.</p>
         </div>
       </div>
     </div>
-  </div>
+  </section>
 
-  <!-- ── PAYING SECTION ── -->
-  <div class="paying-section">
-    <div class="paying-icon">
-      <ph-currency-circle-dollar size="48" style="color:var(--red-060)"></ph-currency-circle-dollar>
+  <!-- ── PAYING, INSURANCE, SAVINGS ── -->
+  <section class="paying-section">
+    <div class="paying-icon-wrap">
+      <ph-hand-coins size="48" style="color:var(--red-060)"></ph-hand-coins>
     </div>
     <h2 class="paying-title">Paying for your Zepbound</h2>
+
     <hr class="paying-divider" />
 
     <div class="payment-method">
-      <div class="payment-method-icon">
-        <ph-credit-card size="32" style="color:var(--red-060)"></ph-credit-card>
-      </div>
+      <div class="payment-icon"><ph-identification-card size="32" style="color:var(--red-060)"></ph-identification-card></div>
       <div>
-        <p class="payment-method-title">HSA / FSA cards</p>
-        <p class="payment-method-desc">Most HSA and FSA cards accepted, online or at the pharmacy counter.</p>
+        <p class="payment-title">HSA / FSA cards</p>
+        <p class="payment-desc">Most HSA and FSA cards accepted, online or at the pharmacy counter.</p>
       </div>
     </div>
 
     <div class="payment-method">
-      <div class="payment-method-icon">
-        <ph-wallet size="32" style="color:var(--red-060)"></ph-wallet>
-      </div>
+      <div class="payment-icon"><ph-credit-card size="32" style="color:var(--red-060)"></ph-credit-card></div>
       <div>
-        <p class="payment-method-title">Credit, debit &amp; digital wallets</p>
-        <p class="payment-method-desc">Major credit/debit cards and digital wallets accepted. For retail pickup, payment methods vary by pharmacy.</p>
+        <p class="payment-title">Credit, debit &amp; digital wallets</p>
+        <p class="payment-desc">Major credit/debit cards and digital wallets accepted. For retail pickup, payment methods vary by pharmacy.</p>
       </div>
     </div>
 
     <div class="payment-method">
-      <div class="payment-method-icon">
-        <ph-prohibit size="32" style="color:var(--red-060)"></ph-prohibit>
-      </div>
+      <div class="payment-icon"><ph-x-circle size="32" style="color:var(--red-060)"></ph-x-circle></div>
       <div>
-        <p class="payment-method-title">No insurance accepted</p>
-        <p class="payment-method-desc">LillyDirect is self-pay only. Payments cannot be split across methods.</p>
+        <p class="payment-title">No insurance accepted</p>
+        <p class="payment-desc">LillyDirect is self-pay only. Payments cannot be split across methods.</p>
       </div>
     </div>
-  </div>
+  </section>
 
   <!-- ── RESOURCE CARDS ── -->
-  <div class="resources-section">
-    <p class="resources-eyebrow">Resources for your treatment</p>
-    <h2 class="resources-title">Medication and support <em>all in one place.</em></h2>
+  <section class="resource-section">
+    <p class="resource-eyebrow">Resources for your treatment</p>
+    <h2 class="resource-hero-title">Medication and support <em>all in one place.</em></h2>
 
-    <!-- Card 1: Digital Companion -->
+    <!-- Red card: Digital companion -->
     <div class="resource-card dark">
-      <div class="resource-chip">
-        <ph-clock size="14" style="color:white"></ph-clock>
+      <span class="resource-chip">
+        <ph-compass size="14"></ph-compass>
         Beginner's guide
-      </div>
+      </span>
       <h3 class="resource-card-title">Digital companion</h3>
       <p class="resource-card-desc">Your guide to using Zepbound, getting answers, accessing support, and making the most of your medicine.</p>
       <a href="#" class="btn btn-outline-white">
-        Get Started
-        <ph-arrow-right size="18" style="color:white"></ph-arrow-right>
+        Get Started <ph-arrow-right size="18"></ph-arrow-right>
       </a>
     </div>
 
-    <!-- Card 2: Injection Training -->
+    <!-- White card: Injection training -->
     <div class="resource-card light">
       <ph-syringe class="resource-card-icon" size="48" style="color:var(--red-060)"></ph-syringe>
       <h3 class="resource-card-title">Injection training video</h3>
-      <p class="resource-card-desc">Step-by-step video on how to use your Zepbound Vial.</p>
+      <p class="resource-card-desc">Step-by-step video walkthrough on how to use your Zepbound pen.</p>
       <a href="#" class="btn btn-red">
-        Get started
-        <ph-arrow-right size="18" style="color:white"></ph-arrow-right>
+        Get started <ph-arrow-right size="18"></ph-arrow-right>
       </a>
     </div>
 
-    <!-- Card 3: Lilly Health -->
+    <!-- White card: Lilly health -->
     <div class="resource-card light">
-      <ph-check-circle class="resource-card-icon" size="48" style="color:var(--red-060)"></ph-check-circle>
+      <ph-heartbeat class="resource-card-icon" size="48" style="color:var(--red-060)"></ph-heartbeat>
       <h3 class="resource-card-title">Lilly health</h3>
       <p class="resource-card-desc">A no-cost app to support you on your medicine journey.</p>
       <a href="#" class="btn btn-red">
-        Learn more
-        <ph-arrow-right size="18" style="color:white"></ph-arrow-right>
+        Learn more <ph-arrow-right size="18"></ph-arrow-right>
       </a>
     </div>
-  </div>
+  </section>
 
-  <!-- ── FULL FAQ SECTION ── -->
-  <div class="faq-full">
-    <h2 class="faq-full-title">Frequently asked questions</h2>
-    <p style="font-size:16px; color:var(--neutral-080); margin-bottom:16px;">Account FAQs</p>
-
-    <!-- Filter chips -->
-    <div class="filter-row" id="faq-chips">
-      <button class="filter-chip active" data-group="all">All (9)</button>
-      <button class="filter-chip" data-group="preferences">Preferences</button>
-      <button class="filter-chip" data-group="settings">Settings</button>
-      <button class="filter-chip" data-group="verification">Verification</button>
+  <!-- ── FAQ SECTION ── -->
+  <section class="faq-full">
+    <div>
+      <h2 class="faq-full-title">Frequently asked questions</h2>
     </div>
 
-    <!-- PREFERENCES -->
-    <div class="faq-group visible" id="faq-preferences">
-      <div class="faq-category-label">PREFERENCES</div>
-      <div class="accordion">
+    <div>
+      <h3 class="faq-section-heading">Account FAQs</h3>
+
+      <!-- Filter chips -->
+      <div class="chip-scroll-wrap">
+        <div class="chip-row" id="faq-chips">
+          <button class="chip active" onclick="filterFaq('all', this)">All (9)</button>
+          <button class="chip" onclick="filterFaq('preferences', this)">Preferences</button>
+          <button class="chip" onclick="filterFaq('settings', this)">Settings</button>
+          <button class="chip" onclick="filterFaq('verification', this)">Verification</button>
+        </div>
+      </div>
+
+      <!-- PREFERENCES -->
+      <div class="faq-group visible" id="faq-preferences">
+        <p class="faq-category-label">Preferences</p>
         <div class="accordion-item">
-          <button class="accordion-trigger">
+          <button class="accordion-trigger" onclick="toggleAccordion(this)">
             <span class="accordion-trigger-text">Why do you need Marketing consent and Market Research consent? How will you use my data?</span>
             <ph-caret-down class="accordion-icon" size="18"></ph-caret-down>
           </button>
-          <div class="accordion-body">We use your data to personalize your experience, send relevant health updates, and improve our services. You can update your consent preferences at any time in account settings.</div>
+          <div class="accordion-body">LillyDirect uses your consent to send relevant health and product information. We never sell your data and use it only to improve your experience and comply with legal requirements.</div>
         </div>
         <div class="accordion-item">
-          <button class="accordion-trigger">
+          <button class="accordion-trigger" onclick="toggleAccordion(this)">
             <span class="accordion-trigger-text">How do I re-enable text messages from LillyDirect Pharmacy after I replied STOP?</span>
             <ph-caret-down class="accordion-icon" size="18"></ph-caret-down>
           </button>
-          <div class="accordion-body">Check your text messages. If you still have the SMS thread where you replied "STOP," text "START" to re-enable. Otherwise, update your communication preferences in LillyDirect account settings.</div>
+          <div class="accordion-body">Text "START" to the same number you messaged "STOP" to. Or go to your LillyDirect account settings, click Communication Preferences, and re-enable Text notifications.</div>
         </div>
         <div class="accordion-item">
-          <button class="accordion-trigger">
-            <span class="accordion-trigger-text">*Placeholder for Consent FAQ — TBD pending Transcend experience*</span>
+          <button class="accordion-trigger" onclick="toggleAccordion(this)">
+            <span class="accordion-trigger-text">Placeholder for Consent FAQ — TBD pending Transcend experience</span>
             <ph-caret-down class="accordion-icon" size="18"></ph-caret-down>
           </button>
           <div class="accordion-body">Content coming soon.</div>
         </div>
       </div>
-    </div>
 
-    <!-- SETTINGS -->
-    <div class="faq-group visible" id="faq-settings">
-      <div class="faq-category-label">SETTINGS</div>
-      <div class="accordion">
+      <!-- SETTINGS -->
+      <div class="faq-group visible" id="faq-settings">
+        <p class="faq-category-label">Settings</p>
         <div class="accordion-item">
-          <button class="accordion-trigger">
+          <button class="accordion-trigger" onclick="toggleAccordion(this)">
             <span class="accordion-trigger-text">I forgot my password or login. How do I reset my LillyDirect account password or login?</span>
             <ph-caret-down class="accordion-icon" size="18"></ph-caret-down>
           </button>
-          <div class="accordion-body">On the login screen, tap "Forgot password?" and enter your registered email address. You'll receive a reset link within a few minutes.</div>
+          <div class="accordion-body">Go to the LillyDirect login page and select "Forgot password." Enter your email address and follow the instructions sent to your inbox. If you still need help, call 1-844-559-3471.</div>
         </div>
         <div class="accordion-item">
-          <button class="accordion-trigger">
+          <button class="accordion-trigger" onclick="toggleAccordion(this)">
             <span class="accordion-trigger-text">Can I save more than one address to my account?</span>
             <ph-caret-down class="accordion-icon" size="18"></ph-caret-down>
           </button>
-          <div class="accordion-body">Yes, you can save multiple delivery addresses. Go to Account Settings → Addresses to add or manage your saved addresses.</div>
+          <div class="accordion-body">Yes, you can save multiple delivery addresses in your account settings. You'll be able to select your preferred address at checkout for each order.</div>
         </div>
         <div class="accordion-item">
-          <button class="accordion-trigger">
+          <button class="accordion-trigger" onclick="toggleAccordion(this)">
             <span class="accordion-trigger-text">Where can I update my preferences and account information?</span>
             <ph-caret-down class="accordion-icon" size="18"></ph-caret-down>
           </button>
-          <div class="accordion-body">Update your account information, contact details, and preferences in your LillyDirect account settings. For support, call 1-844-LLYDIR1 (1-844-559-3471).</div>
+          <div class="accordion-body">Go to your LillyDirect account, select "Account Settings" from the menu, and update your profile, communication preferences, and delivery address.</div>
         </div>
       </div>
-    </div>
 
-    <!-- VERIFICATION -->
-    <div class="faq-group visible" id="faq-verification">
-      <div class="faq-category-label">VERIFICATION</div>
-      <div class="accordion">
+      <!-- VERIFICATION -->
+      <div class="faq-group visible" id="faq-verification">
+        <p class="faq-category-label">Verification</p>
         <div class="accordion-item">
-          <button class="accordion-trigger">
+          <button class="accordion-trigger" onclick="toggleAccordion(this)">
             <span class="accordion-trigger-text">I did not get a verification code or link texted to my phone, what should I do?</span>
             <ph-caret-down class="accordion-icon" size="18"></ph-caret-down>
           </button>
-          <div class="accordion-body">Check that your phone number is correct in your account settings. You can also request a new code. If the issue persists, call 1-844-559-3471 for support.</div>
+          <div class="accordion-body">First check that your phone number is correct in your account. Then try resending the code. If you still don't receive it, call LillyDirect at 1-844-559-3471.</div>
         </div>
         <div class="accordion-item">
-          <button class="accordion-trigger">
-            <span class="accordion-trigger-text">How do I setup two factor authentication?</span>
+          <button class="accordion-trigger" onclick="toggleAccordion(this)">
+            <span class="accordion-trigger-text">How do I set up two-factor authentication?</span>
             <ph-caret-down class="accordion-icon" size="18"></ph-caret-down>
           </button>
-          <div class="accordion-body">Go to Account Settings → Security → Two-Factor Authentication. Follow the setup steps to link your phone number or authenticator app.</div>
+          <div class="accordion-body">Go to Account Settings &gt; Security and toggle on Two-Factor Authentication. You'll be prompted to verify your phone number the next time you log in.</div>
         </div>
         <div class="accordion-item">
-          <button class="accordion-trigger">
-            <span class="accordion-trigger-text">How can I resend the sign up link to my phone number?</span>
+          <button class="accordion-trigger" onclick="toggleAccordion(this)">
+            <span class="accordion-trigger-text">How can I resend the sign-up link to my phone number?</span>
             <ph-caret-down class="accordion-icon" size="18"></ph-caret-down>
           </button>
-          <div class="accordion-body">On the verification screen, tap "Resend code" to receive a new sign-up link. Make sure your phone number on file is correct.</div>
+          <div class="accordion-body">On the sign-up screen, tap "Resend link." Make sure the phone number shown is correct. If the issue persists, call 1-844-559-3471.</div>
         </div>
       </div>
     </div>
-  </div>
+  </section>
 
   <!-- ── FEEDBACK BANNER ── -->
-  <div class="feedback-banner">
-    <h2 class="feedback-title">Your experience matters to us.</h2>
-    <p class="feedback-subtitle">A quick tap helps us improve LillyDirect for you and everyone.</p>
+  <section class="feedback-banner">
+    <div class="feedback-text">
+      <h2 class="feedback-title">Your experience matters to us.</h2>
+      <p class="feedback-subtitle">A quick tap helps us improve LillyDirect for you and everyone.</p>
+    </div>
     <div class="feedback-buttons">
       <button class="btn-outline-white-full">
-        <ph-thumbs-up size="24" style="color:white"></ph-thumbs-up>
+        <ph-thumbs-up size="32" weight="light"></ph-thumbs-up>
         Good
       </button>
       <button class="btn-outline-white-full">
-        <ph-thumbs-down size="24" style="color:white"></ph-thumbs-down>
+        <ph-thumbs-down size="32" weight="light"></ph-thumbs-down>
         Not great
       </button>
     </div>
-  </div>
+  </section>
 
   <!-- ── CUSTOMER SUPPORT BANNER ── -->
-  <div class="support-banner">
+  <section class="support-banner">
     <p class="support-eyebrow">Customer Support</p>
     <h2 class="support-title">We're here to help</h2>
     <p class="support-body">For help with refills, the journey program, or questions about your medicine, call LillyDirect at</p>
-    <p class="support-phone">1-844-559-3471</p>
-  </div>
+    <a class="support-phone" href="tel:18445593471">1-844-559-3471</a>
+  </section>
 
-  <!-- ── FOOTER ── */
+  <!-- ── FOOTER ── -->
   <footer class="footer">
     <div class="footer-top">
-      <div class="footer-logo">LillyDirect®</div>
+      <div class="footer-logo">
+        <img src="assets/ld-logo.svg" alt="LillyDirect" />
+      </div>
       <div class="footer-socials">
-        <ph-instagram-logo size="20" style="color:white"></ph-instagram-logo>
-        <ph-x-logo size="20" style="color:white"></ph-x-logo>
-        <ph-facebook-logo size="20" style="color:white"></ph-facebook-logo>
-        <ph-linkedin-logo size="20" style="color:white"></ph-linkedin-logo>
-        <ph-youtube-logo size="20" style="color:white"></ph-youtube-logo>
+        <img src="assets/instagram.svg" alt="Instagram" />
+        <img src="assets/x-logo.svg" alt="X" />
+        <img src="assets/facebook.svg" alt="Facebook" />
+        <img src="assets/linkedin.svg" alt="LinkedIn" />
+        <img src="assets/youtube.svg" alt="YouTube" />
       </div>
     </div>
 
@@ -1244,13 +985,14 @@
     </div>
 
     <div class="footer-heading">Terms and legal</div>
-    <div class="footer-links">
-      <a href="#">View all statements and notices &rsaquo;</a>
+    <div class="footer-view-all">
+      <a href="#">View all statements and notices</a>
+      <ph-caret-right size="14" style="color:rgba(255,255,255,0.85)"></ph-caret-right>
     </div>
 
     <div class="footer-privacy">
       <div class="footer-privacy-left">
-        <span class="privacy-badge">YPC</span>
+        <img class="privacy-badge-img" src="assets/privacy-badge.png" alt="Privacy" />
         <a href="#">Your Privacy Choices</a>
       </div>
       <a href="#">Cookie Settings</a>
@@ -1258,85 +1000,61 @@
 
     <p class="footer-legal">
       This site is intended for U.S. residents ages 18 and over. PP-LX-US-0004 12/2025
-      <a href="https://lillyhub.com/legal/lillyusa/english/copyright.html" target="_blank">©Lilly USA, LLC 2025. All rights reserved</a>.
+      <a href="https://lillyhub.com/legal/lillyusa/english/copyright.html" target="_blank">
+        ©Lilly USA, LLC 2025. All rights reserved.
+      </a>
       LillyDirect® is a registered trademark owned or licensed by Eli Lilly and Company, its subsidiaries, or affiliates.
     </p>
   </footer>
 
+  <!-- CHAT FAB -->
+  <button class="chat-fab" aria-label="Chat support">
+    <ph-chat-circle-dots size="30" weight="fill"></ph-chat-circle-dots>
+  </button>
+
 </div><!-- /page -->
 
-<!-- FLOATING CHAT BUTTON -->
-<button class="chat-fab" onclick="alert('Chat support coming soon')">
-  <ph-chat-dots weight="fill" size="28" style="color:white"></ph-chat-dots>
-</button>
-
 <script>
-  // ── Getting Started chip filter ──
-  const gsChips = document.querySelectorAll('#gs-chips .chip');
-  const gsItems = document.querySelectorAll('.gs-item');
-
-  gsChips.forEach(chip => {
-    chip.addEventListener('click', () => {
-      gsChips.forEach(c => c.classList.remove('active'));
-      chip.classList.add('active');
-      const filter = chip.dataset.filter;
-      gsItems.forEach(item => {
-        item.style.display = item.classList.contains(filter) ? 'block' : 'none';
-      });
-    });
-  });
-
-  // ── FAQ accordion ──
-  document.querySelectorAll('.accordion-trigger').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const item = btn.closest('.accordion-item');
-      const isOpen = item.classList.contains('open');
-      btn.closest('.accordion').querySelectorAll('.accordion-item').forEach(i => i.classList.remove('open'));
-      if (!isOpen) item.classList.add('open');
-    });
-  });
-
-  // ── FAQ full section chip filter ──
-  const faqChips = document.querySelectorAll('#faq-chips .filter-chip');
-  faqChips.forEach(chip => {
-    chip.addEventListener('click', () => {
-      faqChips.forEach(c => c.classList.remove('active'));
-      chip.classList.add('active');
-      const group = chip.dataset.group;
-      const groups = ['preferences', 'settings', 'verification'];
-      if (group === 'all') {
-        groups.forEach(g => {
-          const el = document.getElementById('faq-' + g);
-          if (el) el.classList.add('visible');
-        });
-      } else {
-        groups.forEach(g => {
-          const el = document.getElementById('faq-' + g);
-          if (el) el.classList.toggle('visible', g === group);
-        });
-      }
-    });
-  });
-
-  // ── Medication selector ──
+  /* ── Order card medication selector ── */
   function toggleMedSelector() {
-    const selector = document.getElementById('medSelector');
+    const sel = document.getElementById('medSelector');
     const caret = document.getElementById('cardCaret');
-    const isOpen = selector.classList.toggle('open');
-    caret.classList.toggle('open', isOpen);
+    const isOpen = sel.classList.contains('open');
+    sel.classList.toggle('open');
+    caret.classList.toggle('open');
   }
   function closeMedSelector() {
     document.getElementById('medSelector').classList.remove('open');
     document.getElementById('cardCaret').classList.remove('open');
   }
-  document.addEventListener('click', function(e) {
-    const card = document.getElementById('orderCard');
-    const selector = document.getElementById('medSelector');
-    if (selector && selector.classList.contains('open') &&
-        !card.contains(e.target) && !selector.contains(e.target)) {
-      closeMedSelector();
+
+  /* ── Getting started topic selector ── */
+  function switchGsTopic(val) {
+    document.querySelectorAll('.gs-faq-group').forEach(g => g.classList.remove('active'));
+    const map = { account: 'gs-account', ordering: 'gs-ordering', delivery: 'gs-delivery' };
+    const el = document.getElementById(map[val]);
+    if (el) el.classList.add('active');
+  }
+
+  /* ── FAQ chip filter ── */
+  function filterFaq(cat, btn) {
+    document.querySelectorAll('#faq-chips .chip').forEach(c => c.classList.remove('active'));
+    btn.classList.add('active');
+    const groups = { preferences: 'faq-preferences', settings: 'faq-settings', verification: 'faq-verification' };
+    if (cat === 'all') {
+      document.querySelectorAll('.faq-group').forEach(g => g.classList.add('visible'));
+    } else {
+      document.querySelectorAll('.faq-group').forEach(g => g.classList.remove('visible'));
+      const el = document.getElementById(groups[cat]);
+      if (el) el.classList.add('visible');
     }
-  });
+  }
+
+  /* ── Accordion ── */
+  function toggleAccordion(btn) {
+    const item = btn.closest('.accordion-item');
+    item.classList.toggle('open');
+  }
 </script>
 </body>
 </html>
