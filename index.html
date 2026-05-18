@@ -7,7 +7,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet" />
-  <script type="module" src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css" />
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css" />
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/light/style.css" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -616,11 +618,11 @@
         <div class="nav-divider"></div>
         <img class="nav-direct-logo" src="assets/direct-logo.svg" alt="Direct" />
         <span class="nav-icon-btn" style="margin-left:2px">
-          <ph-list size="20" color="white"></ph-list>
+          <i class="ph ph-list" style="font-size:20px;color:white"></i>
         </span>
       </div>
       <div class="nav-right">
-        <span class="nav-icon-btn"><ph-magnifying-glass size="19" color="white"></ph-magnifying-glass></span>
+        <span class="nav-icon-btn"><i class="ph ph-magnifying-glass" style="font-size:19px;color:white"></i></span>
         <div class="nav-avatar">DS</div>
       </div>
     </div>
@@ -631,7 +633,7 @@
 
     <!-- Breadcrumb -->
     <div class="breadcrumb">
-      <a href="#"><ph-house size="14"></ph-house> Home</a>
+      <a href="#"><i class="ph ph-house" style="font-size:14px"></i> Home</a>
       <span class="breadcrumb-sep">/</span>
       <span class="breadcrumb-current">Support Hub</span>
     </div>
@@ -650,7 +652,7 @@
       <div class="order-card" id="orderCard" onclick="toggleMedSelector()">
         <div class="card-top">
           <span class="status-chip">Pharmacist reviewing</span>
-          <ph-caret-down class="card-caret" id="cardCaret" size="20"></ph-caret-down>
+          <i class="ph ph-caret-down card-caret" id="cardCaret" style="font-size:20px"></i>
         </div>
         <div class="med-content">
           <div class="med-thumb">
@@ -673,24 +675,24 @@
             <p class="med-opt-name">Zepbound® (tirzepatide)</p>
             <p class="med-opt-sub">Vial 2.5 mg/0.5 mL</p>
           </div>
-          <ph-check size="18" style="color:var(--red-060);flex-shrink:0"></ph-check>
+          <i class="ph ph-check" style="font-size:18px;color:var(--red-060);flex-shrink:0"></i>
         </div>
         <div class="med-option" onclick="closeMedSelector()">
           <div class="med-opt-thumb" style="background:var(--red-010)">
-            <ph-plus size="20" style="color:var(--red-060)"></ph-plus>
+            <i class="ph ph-plus" style="font-size:20px;color:var(--red-060)"></i>
           </div>
           <div class="med-opt-info">
             <p class="med-opt-name">Add another prescription</p>
             <p class="med-opt-sub add">Get support for a different medicine</p>
           </div>
-          <ph-arrow-right size="16" style="color:var(--neutral-040);flex-shrink:0"></ph-arrow-right>
+          <i class="ph ph-arrow-right" style="font-size:16px;color:var(--neutral-040);flex-shrink:0"></i>
         </div>
       </div>
 
       <!-- Status message -->
       <div class="status-msg">
         <div class="status-msg-row">
-          <span class="status-msg-icon"><ph-clock size="20"></ph-clock></span>
+          <span class="status-msg-icon"><i class="ph ph-clock" style="font-size:20px"></i></span>
           <p class="status-msg-label">Most reviews are completed within 1 business day.</p>
         </div>
         <p class="status-msg-sub">We'll notify you when it's ready.</p>
@@ -710,7 +712,7 @@
         <option value="ordering">Ordering</option>
         <option value="delivery">Delivery &amp; Retail Pickup</option>
       </select>
-      <span class="gs-select-caret"><ph-caret-down size="18"></ph-caret-down></span>
+      <span class="gs-select-caret"><i class="ph ph-caret-down" style="font-size:18px"></i></span>
     </div>
 
     <div class="gs-faqs">
@@ -765,14 +767,14 @@
   <!-- ── PAYING, INSURANCE, SAVINGS ── -->
   <section class="paying-section">
     <div class="paying-icon-wrap">
-      <ph-hand-coins size="48" style="color:var(--red-060)"></ph-hand-coins>
+      <i class="ph ph-hand-coins" style="font-size:48px;color:var(--red-060)"></i>
     </div>
     <h2 class="paying-title">Paying for your Zepbound</h2>
 
     <hr class="paying-divider" />
 
     <div class="payment-method">
-      <div class="payment-icon"><ph-identification-card size="32" style="color:var(--red-060)"></ph-identification-card></div>
+      <div class="payment-icon"><i class="ph ph-identification-card" style="font-size:32px;color:var(--red-060)"></i></div>
       <div>
         <p class="payment-title">HSA / FSA cards</p>
         <p class="payment-desc">Most HSA and FSA cards accepted, online or at the pharmacy counter.</p>
@@ -780,7 +782,7 @@
     </div>
 
     <div class="payment-method">
-      <div class="payment-icon"><ph-credit-card size="32" style="color:var(--red-060)"></ph-credit-card></div>
+      <div class="payment-icon"><i class="ph ph-credit-card" style="font-size:32px;color:var(--red-060)"></i></div>
       <div>
         <p class="payment-title">Credit, debit &amp; digital wallets</p>
         <p class="payment-desc">Major credit/debit cards and digital wallets accepted. For retail pickup, payment methods vary by pharmacy.</p>
@@ -788,7 +790,7 @@
     </div>
 
     <div class="payment-method">
-      <div class="payment-icon"><ph-x-circle size="32" style="color:var(--red-060)"></ph-x-circle></div>
+      <div class="payment-icon"><i class="ph ph-x-circle" style="font-size:32px;color:var(--red-060)"></i></div>
       <div>
         <p class="payment-title">No insurance accepted</p>
         <p class="payment-desc">LillyDirect is self-pay only. Payments cannot be split across methods.</p>
@@ -804,33 +806,33 @@
     <!-- Red card: Digital companion -->
     <div class="resource-card dark">
       <span class="resource-chip">
-        <ph-compass size="14"></ph-compass>
+        <i class="ph ph-compass" style="font-size:14px"></i>
         Beginner's guide
       </span>
       <h3 class="resource-card-title">Digital companion</h3>
       <p class="resource-card-desc">Your guide to using Zepbound, getting answers, accessing support, and making the most of your medicine.</p>
       <a href="#" class="btn btn-outline-white">
-        Get Started <ph-arrow-right size="18"></ph-arrow-right>
+        Get Started <i class="ph ph-arrow-right" style="font-size:18px"></i>
       </a>
     </div>
 
     <!-- White card: Injection training -->
     <div class="resource-card light">
-      <ph-syringe class="resource-card-icon" size="48" style="color:var(--red-060)"></ph-syringe>
+      <i class="ph ph-syringe resource-card-icon" style="font-size:48px;color:var(--red-060)"></i>
       <h3 class="resource-card-title">Injection training video</h3>
       <p class="resource-card-desc">Step-by-step video walkthrough on how to use your Zepbound pen.</p>
       <a href="#" class="btn btn-red">
-        Get started <ph-arrow-right size="18"></ph-arrow-right>
+        Get started <i class="ph ph-arrow-right" style="font-size:18px"></i>
       </a>
     </div>
 
     <!-- White card: Lilly health -->
     <div class="resource-card light">
-      <ph-heartbeat class="resource-card-icon" size="48" style="color:var(--red-060)"></ph-heartbeat>
+      <i class="ph ph-heartbeat resource-card-icon" style="font-size:48px;color:var(--red-060)"></i>
       <h3 class="resource-card-title">Lilly health</h3>
       <p class="resource-card-desc">A no-cost app to support you on your medicine journey.</p>
       <a href="#" class="btn btn-red">
-        Learn more <ph-arrow-right size="18"></ph-arrow-right>
+        Learn more <i class="ph ph-arrow-right" style="font-size:18px"></i>
       </a>
     </div>
   </section>
@@ -860,21 +862,21 @@
         <div class="accordion-item">
           <button class="accordion-trigger" onclick="toggleAccordion(this)">
             <span class="accordion-trigger-text">Why do you need Marketing consent and Market Research consent? How will you use my data?</span>
-            <ph-caret-down class="accordion-icon" size="18"></ph-caret-down>
+            <i class="ph ph-caret-down accordion-icon" style="font-size:18px"></i>
           </button>
           <div class="accordion-body">LillyDirect uses your consent to send relevant health and product information. We never sell your data and use it only to improve your experience and comply with legal requirements.</div>
         </div>
         <div class="accordion-item">
           <button class="accordion-trigger" onclick="toggleAccordion(this)">
             <span class="accordion-trigger-text">How do I re-enable text messages from LillyDirect Pharmacy after I replied STOP?</span>
-            <ph-caret-down class="accordion-icon" size="18"></ph-caret-down>
+            <i class="ph ph-caret-down accordion-icon" style="font-size:18px"></i>
           </button>
           <div class="accordion-body">Text "START" to the same number you messaged "STOP" to. Or go to your LillyDirect account settings, click Communication Preferences, and re-enable Text notifications.</div>
         </div>
         <div class="accordion-item">
           <button class="accordion-trigger" onclick="toggleAccordion(this)">
             <span class="accordion-trigger-text">Placeholder for Consent FAQ — TBD pending Transcend experience</span>
-            <ph-caret-down class="accordion-icon" size="18"></ph-caret-down>
+            <i class="ph ph-caret-down accordion-icon" style="font-size:18px"></i>
           </button>
           <div class="accordion-body">Content coming soon.</div>
         </div>
@@ -886,21 +888,21 @@
         <div class="accordion-item">
           <button class="accordion-trigger" onclick="toggleAccordion(this)">
             <span class="accordion-trigger-text">I forgot my password or login. How do I reset my LillyDirect account password or login?</span>
-            <ph-caret-down class="accordion-icon" size="18"></ph-caret-down>
+            <i class="ph ph-caret-down accordion-icon" style="font-size:18px"></i>
           </button>
           <div class="accordion-body">Go to the LillyDirect login page and select "Forgot password." Enter your email address and follow the instructions sent to your inbox. If you still need help, call 1-844-559-3471.</div>
         </div>
         <div class="accordion-item">
           <button class="accordion-trigger" onclick="toggleAccordion(this)">
             <span class="accordion-trigger-text">Can I save more than one address to my account?</span>
-            <ph-caret-down class="accordion-icon" size="18"></ph-caret-down>
+            <i class="ph ph-caret-down accordion-icon" style="font-size:18px"></i>
           </button>
           <div class="accordion-body">Yes, you can save multiple delivery addresses in your account settings. You'll be able to select your preferred address at checkout for each order.</div>
         </div>
         <div class="accordion-item">
           <button class="accordion-trigger" onclick="toggleAccordion(this)">
             <span class="accordion-trigger-text">Where can I update my preferences and account information?</span>
-            <ph-caret-down class="accordion-icon" size="18"></ph-caret-down>
+            <i class="ph ph-caret-down accordion-icon" style="font-size:18px"></i>
           </button>
           <div class="accordion-body">Go to your LillyDirect account, select "Account Settings" from the menu, and update your profile, communication preferences, and delivery address.</div>
         </div>
@@ -912,21 +914,21 @@
         <div class="accordion-item">
           <button class="accordion-trigger" onclick="toggleAccordion(this)">
             <span class="accordion-trigger-text">I did not get a verification code or link texted to my phone, what should I do?</span>
-            <ph-caret-down class="accordion-icon" size="18"></ph-caret-down>
+            <i class="ph ph-caret-down accordion-icon" style="font-size:18px"></i>
           </button>
           <div class="accordion-body">First check that your phone number is correct in your account. Then try resending the code. If you still don't receive it, call LillyDirect at 1-844-559-3471.</div>
         </div>
         <div class="accordion-item">
           <button class="accordion-trigger" onclick="toggleAccordion(this)">
             <span class="accordion-trigger-text">How do I set up two-factor authentication?</span>
-            <ph-caret-down class="accordion-icon" size="18"></ph-caret-down>
+            <i class="ph ph-caret-down accordion-icon" style="font-size:18px"></i>
           </button>
           <div class="accordion-body">Go to Account Settings &gt; Security and toggle on Two-Factor Authentication. You'll be prompted to verify your phone number the next time you log in.</div>
         </div>
         <div class="accordion-item">
           <button class="accordion-trigger" onclick="toggleAccordion(this)">
             <span class="accordion-trigger-text">How can I resend the sign-up link to my phone number?</span>
-            <ph-caret-down class="accordion-icon" size="18"></ph-caret-down>
+            <i class="ph ph-caret-down accordion-icon" style="font-size:18px"></i>
           </button>
           <div class="accordion-body">On the sign-up screen, tap "Resend link." Make sure the phone number shown is correct. If the issue persists, call 1-844-559-3471.</div>
         </div>
@@ -942,11 +944,11 @@
     </div>
     <div class="feedback-buttons">
       <button class="btn-outline-white-full">
-        <ph-thumbs-up size="32" weight="light"></ph-thumbs-up>
+        <i class="ph-light ph-thumbs-up" style="font-size:32px"></i>
         Good
       </button>
       <button class="btn-outline-white-full">
-        <ph-thumbs-down size="32" weight="light"></ph-thumbs-down>
+        <i class="ph-light ph-thumbs-down" style="font-size:32px"></i>
         Not great
       </button>
     </div>
@@ -987,7 +989,7 @@
     <div class="footer-heading">Terms and legal</div>
     <div class="footer-view-all">
       <a href="#">View all statements and notices</a>
-      <ph-caret-right size="14" style="color:rgba(255,255,255,0.85)"></ph-caret-right>
+      <i class="ph ph-caret-right" style="font-size:14px;color:rgba(255,255,255,0.85)"></i>
     </div>
 
     <div class="footer-privacy">
@@ -1009,7 +1011,7 @@
 
   <!-- CHAT FAB -->
   <button class="chat-fab" aria-label="Chat support">
-    <ph-chat-circle-dots size="30" weight="fill"></ph-chat-circle-dots>
+    <i class="ph-fill ph-chat-circle-dots" style="font-size:30px"></i>
   </button>
 
 </div><!-- /page -->
