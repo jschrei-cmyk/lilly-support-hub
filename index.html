@@ -279,10 +279,6 @@
       margin-bottom: 24px;
       position: relative;
     }
-    .gs-select-label {
-      font-size: 12px; font-weight: 600; color: var(--neutral-080);
-      margin-bottom: 4px; display: block;
-    }
     .gs-select-box {
       width: 100%;
       border: 1px solid var(--neutral-040);
@@ -437,12 +433,12 @@
     }
     .faq-section-heading {
       font-size: 24px; font-weight: 400; line-height: 32px;
-      color: var(--neutral-100); margin-bottom: 16px;
+      color: var(--neutral-100); margin-bottom: 24px;
     }
 
     /* Chip scroll */
     .chip-scroll-wrap {
-      overflow-x: auto; margin-bottom: 16px;
+      overflow-x: auto; margin-bottom: 24px;
       -ms-overflow-style: none; scrollbar-width: none;
     }
     .chip-scroll-wrap::-webkit-scrollbar { display: none; }
@@ -552,7 +548,7 @@
     /* ── FOOTER ── */
     .footer {
       background: var(--red-060);
-      padding: 48px 16px 32px;
+      padding: 48px 16px;
       color: white;
     }
     .footer-top {
@@ -653,7 +649,7 @@
       <div class="order-card" id="orderCard" onclick="toggleMedSelector()">
         <div class="card-top">
           <span class="status-chip">Pharmacist reviewing</span>
-          <i class="ph ph-caret-down card-caret" id="cardCaret" style="font-size:20px"></i>
+          <i class="ph ph-caret-down card-caret" id="cardCaret" style="font-size:24px"></i>
         </div>
         <div class="med-content">
           <div class="med-thumb">
@@ -693,7 +689,7 @@
       <!-- Status message -->
       <div class="status-msg">
         <div class="status-msg-row">
-          <span class="status-msg-icon"><i class="ph ph-clock" style="font-size:20px"></i></span>
+          <span class="status-msg-icon"><i class="ph ph-clock" style="font-size:24px"></i></span>
           <p class="status-msg-label">Most reviews are completed within 1 business day.</p>
         </div>
         <p class="status-msg-sub">We'll notify you when it's ready.</p>
@@ -705,10 +701,9 @@
   <section class="getting-started">
     <h2 class="gs-title">Getting started</h2>
 
-    <!-- Topic select dropdown (LDS-3 Select) -->
+    <!-- Topic select dropdown -->
     <div class="gs-select-wrap">
-      <span class="gs-select-label">Choose a topic</span>
-      <select class="gs-select-box" id="gsSelect" onchange="switchGsTopic(this.value)">
+      <select class="gs-select-box" id="gsSelect" aria-label="Choose a topic" onchange="switchGsTopic(this.value)">
         <option value="account">Account &amp; General Info</option>
         <option value="ordering">Ordering</option>
         <option value="delivery">Delivery &amp; Retail Pickup</option>
@@ -945,11 +940,11 @@
     </div>
     <div class="feedback-buttons">
       <button class="btn-outline-white-full">
-        <i class="ph-light ph-thumbs-up" style="font-size:32px"></i>
+        <i class="ph-light ph-thumbs-up" style="font-size:40px"></i>
         Good
       </button>
       <button class="btn-outline-white-full">
-        <i class="ph-light ph-thumbs-down" style="font-size:32px"></i>
+        <i class="ph-light ph-thumbs-down" style="font-size:40px"></i>
         Not great
       </button>
     </div>
