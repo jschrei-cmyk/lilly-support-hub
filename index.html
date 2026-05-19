@@ -300,36 +300,36 @@
     .gs-dropdown {
       display: none;
       position: absolute;
-      top: calc(100% + 4px);
+      top: calc(100% + 8px);
       left: 16px; right: 16px;
       background: var(--white);
       border-radius: 16px;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.12), 0 1px 4px rgba(0,0,0,0.08);
+      box-shadow: 0 8px 12px rgba(52,63,65,0.12), 0 4px 8px rgba(52,63,65,0.04);
       z-index: 100;
       overflow: hidden;
+      padding: 4px 0;
     }
     .gs-dropdown.open { display: block; }
     .gs-option {
       display: flex;
       align-items: flex-start;
-      gap: 14px;
+      gap: 12px;
       padding: 16px 20px;
       cursor: pointer;
     }
-    .gs-option:not(:last-child) { border-bottom: 1px solid var(--neutral-010); }
-    .gs-option:hover { background: var(--neutral-010); }
+    .gs-option:hover { background: #f5f5f5; }
     .gs-option-radio {
-      width: 20px; height: 20px;
+      width: 24px; height: 24px;
       border-radius: 50%;
-      border: 2px solid var(--neutral-040);
+      border: 1.5px solid var(--neutral-040);
       background: var(--white);
       flex-shrink: 0;
-      margin-top: 3px;
+      margin-top: 2px;
     }
     .gs-option.selected .gs-option-radio {
       border-color: var(--neutral-100);
       background: var(--neutral-100);
-      box-shadow: inset 0 0 0 4px var(--white);
+      box-shadow: inset 0 0 0 5px var(--white);
     }
     .gs-option-text { display: flex; flex-direction: column; gap: 2px; flex: 1; }
     .gs-option-label { font-size: 16px; font-weight: 400; color: var(--neutral-100); line-height: 24px; }
