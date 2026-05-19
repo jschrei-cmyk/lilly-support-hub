@@ -536,14 +536,14 @@
       display: flex; flex-direction: column; gap: 16px; align-items: center; width: 100%;
     }
     .feedback-title {
-      font-family: var(--font-serif);
+      font-family: 'Cormorant Garamond', Georgia, serif;
       font-size: 40px; line-height: 42px;
       letter-spacing: -0.4px; color: white;
       margin-bottom: 0; font-weight: 400; text-align: center;
     }
     .feedback-subtitle {
       font-size: 20px; line-height: 30px;
-      color: rgba(255,255,255,0.85); font-weight: 400; text-align: center;
+      color: white; font-weight: 400; text-align: center;
     }
     .feedback-buttons { display: flex; flex-direction: column; gap: 24px; width: 100%; }
     .btn-outline-white-full {
@@ -555,6 +555,25 @@
       transition: background 0.15s; font-family: var(--font-sans);
     }
     .btn-outline-white-full:hover { background: rgba(255,255,255,0.1); }
+    .btn-outline-white-full:active { background: rgba(255,255,255,0.2); }
+    .feedback-thanks {
+      display: none;
+      flex-direction: column; align-items: center; gap: 16px;
+      width: 100%; text-align: center; color: white;
+      animation: fbFadeUp 0.35s ease both;
+    }
+    .feedback-thanks.visible { display: flex; }
+    .feedback-thanks-icon { font-size: 56px; }
+    .feedback-thanks-head {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 32px; line-height: 38px;
+      letter-spacing: -0.32px; font-weight: 400;
+    }
+    .feedback-thanks-msg { font-size: 16px; line-height: 24px; color: rgba(255,255,255,0.85); }
+    @keyframes fbFadeUp {
+      from { opacity: 0; transform: translateY(12px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
 
     /* ── SUPPORT BANNER ── */
     .support-banner {
@@ -997,15 +1016,20 @@
       <h2 class="feedback-title">Your experience matters to us.</h2>
       <p class="feedback-subtitle">A quick tap helps us improve LillyDirect for you and everyone.</p>
     </div>
-    <div class="feedback-buttons">
-      <button class="btn-outline-white-full">
+    <div class="feedback-buttons" id="feedbackButtons">
+      <button class="btn-outline-white-full" onclick="submitFeedback('good')">
         <i class="ph-light ph-thumbs-up" style="font-size:40px"></i>
         Good
       </button>
-      <button class="btn-outline-white-full">
+      <button class="btn-outline-white-full" onclick="submitFeedback('notgreat')">
         <i class="ph-light ph-thumbs-down" style="font-size:40px"></i>
         Not great
       </button>
+    </div>
+    <div class="feedback-thanks" id="feedbackThanks">
+      <i class="ph-light ph-check-circle feedback-thanks-icon"></i>
+      <p class="feedback-thanks-head" id="feedbackThanksHead">Thank you!</p>
+      <p class="feedback-thanks-msg" id="feedbackThanksMsg">Your feedback helps us improve LillyDirect for everyone.</p>
     </div>
   </section>
 
@@ -1144,6 +1168,21 @@
   function toggleAccordion(btn) {
     const item = btn.closest('.accordion-item');
     item.classList.toggle('open');
+  }
+
+  /* ── Feedback banner ── */
+  function submitFeedback(type) {
+    document.getElementById('feedbackButtons').style.display = 'none';
+    const head = document.getElementById('feedbackThanksHead');
+    const msg  = document.getElementById('feedbackThanksMsg');
+    if (type === 'good') {
+      head.textContent = 'We\'re glad to hear it!';
+      msg.textContent  = 'Thanks for sharing. Your feedback helps us keep improving.';
+    } else {
+      head.textContent = 'Thanks for letting us know.';
+      msg.textContent  = 'We take every piece of feedback seriously and will keep working to improve.';
+    }
+    document.getElementById('feedbackThanks').classList.add('visible');
   }
 </script>
 </body>
