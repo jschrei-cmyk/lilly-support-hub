@@ -414,6 +414,18 @@
       font-weight: 400; font-style: italic;
       margin-bottom: 48px; word-break: break-word;
     }
+
+    /* Simulate ITC Garamond Std Book Narrow — condense all serif headlines ~18% */
+    .hero-title, .gs-title, .paying-title,
+    .resource-hero-title, .resource-hero-subtitle,
+    .faq-full-title, .support-title {
+      transform: scaleX(0.82);
+      transform-origin: left top;
+    }
+    .feedback-title, .fb-success-title, .fb-contact-title {
+      transform: scaleX(0.82);
+      transform-origin: center top;
+    }
     .resource-card {
       border-radius: var(--radius-lg);
       padding: 32px;
