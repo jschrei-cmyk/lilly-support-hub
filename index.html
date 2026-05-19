@@ -529,22 +529,27 @@
     /* ── FEEDBACK BANNER ── */
     .feedback-banner {
       background: var(--red-090);
+      overflow: hidden;
+    }
+    /* shared across all three states */
+    .fb-state { display: none; width: 100%; }
+    .fb-state.active { display: flex; animation: fbFadeUp 0.35s ease both; }
+    @keyframes fbFadeUp {
+      from { opacity: 0; transform: translateY(10px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    /* ── Default state ── */
+    .fb-default {
+      flex-direction: column; align-items: center; gap: 64px;
       padding: 48px 24px;
-      display: flex; flex-direction: column; gap: 64px; align-items: center;
     }
-    .feedback-text {
-      display: flex; flex-direction: column; gap: 16px; align-items: center; width: 100%;
-    }
+    .feedback-text { display: flex; flex-direction: column; gap: 16px; align-items: center; width: 100%; }
     .feedback-title {
       font-family: 'Cormorant Garamond', Georgia, serif;
-      font-size: 40px; line-height: 42px;
-      letter-spacing: -0.4px; color: white;
-      margin-bottom: 0; font-weight: 400; text-align: center;
-    }
-    .feedback-subtitle {
-      font-size: 20px; line-height: 30px;
+      font-size: 40px; line-height: 42px; letter-spacing: -0.4px;
       color: white; font-weight: 400; text-align: center;
     }
+    .feedback-subtitle { font-size: 20px; line-height: 30px; color: white; font-weight: 400; text-align: center; }
     .feedback-buttons { display: flex; flex-direction: column; gap: 24px; width: 100%; }
     .btn-outline-white-full {
       display: flex; align-items: center; justify-content: center; gap: 12px;
@@ -554,25 +559,46 @@
       font-size: 20px; font-weight: 400; cursor: pointer;
       transition: background 0.15s; font-family: var(--font-sans);
     }
-    .btn-outline-white-full:hover { background: rgba(255,255,255,0.1); }
+    .btn-outline-white-full:hover  { background: rgba(255,255,255,0.1); }
     .btn-outline-white-full:active { background: rgba(255,255,255,0.2); }
-    .feedback-thanks {
-      display: none;
-      flex-direction: column; align-items: center; gap: 16px;
-      width: 100%; text-align: center; color: white;
-      animation: fbFadeUp 0.35s ease both;
+    /* ── Success state ── */
+    .fb-success {
+      flex-direction: column; align-items: center; justify-content: center;
+      gap: 32px; padding: 120px 24px;
     }
-    .feedback-thanks.visible { display: flex; }
-    .feedback-thanks-icon { font-size: 56px; }
-    .feedback-thanks-head {
+    .fb-success-text { display: flex; flex-direction: column; gap: 16px; align-items: center; width: 100%; }
+    .fb-success-title {
       font-family: 'Cormorant Garamond', Georgia, serif;
-      font-size: 32px; line-height: 38px;
-      letter-spacing: -0.32px; font-weight: 400;
+      font-size: 40px; line-height: 42px; letter-spacing: -0.4px;
+      color: white; font-weight: 400; text-align: center;
     }
-    .feedback-thanks-msg { font-size: 16px; line-height: 24px; color: rgba(255,255,255,0.85); }
-    @keyframes fbFadeUp {
-      from { opacity: 0; transform: translateY(12px); }
-      to   { opacity: 1; transform: translateY(0); }
+    .fb-success-body { font-size: 18px; line-height: 28px; color: white; text-align: center; }
+    /* ── Contact state ── */
+    .fb-contact {
+      flex-direction: column; align-items: center; justify-content: center;
+      gap: 48px; padding: 48px 24px;
+    }
+    .fb-contact-title {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 40px; line-height: 42px; letter-spacing: -0.4px;
+      color: white; font-weight: 400; text-align: center;
+    }
+    .fb-contact-cards { display: flex; flex-direction: column; gap: 24px; width: 100%; }
+    .fb-contact-card {
+      background: white; border-radius: 16px;
+      padding: 18px 40px 18px 24px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .fb-contact-card-icon { font-size: 48px; color: var(--neutral-100); flex-shrink: 0; }
+    .fb-contact-card-text { display: flex; flex-direction: column; gap: 2px; }
+    .fb-contact-eyebrow {
+      font-size: 14px; line-height: 18px; letter-spacing: 0.5px;
+      text-transform: uppercase; color: var(--neutral-100); font-weight: 400;
+    }
+    .fb-contact-link {
+      font-size: 24px; line-height: 32px; font-weight: 900;
+      color: var(--red-060); text-decoration: underline;
+      font-family: var(--font-sans);
     }
 
     /* ── SUPPORT BANNER ── */
@@ -1012,25 +1038,55 @@
 
   <!-- ── FEEDBACK BANNER ── -->
   <section class="feedback-banner">
-    <div class="feedback-text">
-      <h2 class="feedback-title">Your experience matters to us.</h2>
-      <p class="feedback-subtitle">A quick tap helps us improve LillyDirect for you and everyone.</p>
+
+    <!-- State: Default -->
+    <div class="fb-state fb-default active" id="fbDefault">
+      <div class="feedback-text">
+        <h2 class="feedback-title">Your experience matters to us.</h2>
+        <p class="feedback-subtitle">A quick tap helps us improve LillyDirect for you and everyone.</p>
+      </div>
+      <div class="feedback-buttons">
+        <button class="btn-outline-white-full" onclick="submitFeedback('good')">
+          <i class="ph-light ph-thumbs-up" style="font-size:40px"></i>
+          Good
+        </button>
+        <button class="btn-outline-white-full" onclick="submitFeedback('notgreat')">
+          <i class="ph-light ph-thumbs-down" style="font-size:40px"></i>
+          Not great
+        </button>
+      </div>
     </div>
-    <div class="feedback-buttons" id="feedbackButtons">
-      <button class="btn-outline-white-full" onclick="submitFeedback('good')">
-        <i class="ph-light ph-thumbs-up" style="font-size:40px"></i>
-        Good
-      </button>
-      <button class="btn-outline-white-full" onclick="submitFeedback('notgreat')">
-        <i class="ph-light ph-thumbs-down" style="font-size:40px"></i>
-        Not great
-      </button>
+
+    <!-- State: Success (after "Good") -->
+    <div class="fb-state fb-success" id="fbSuccess">
+      <i class="ph-light ph-check-circle" style="font-size:96px;color:white"></i>
+      <div class="fb-success-text">
+        <p class="fb-success-title">Thank you!</p>
+        <p class="fb-success-body">Your feedback helps us improve LillyDirect for everyone.</p>
+      </div>
     </div>
-    <div class="feedback-thanks" id="feedbackThanks">
-      <i class="ph-light ph-check-circle feedback-thanks-icon"></i>
-      <p class="feedback-thanks-head" id="feedbackThanksHead">Thank you!</p>
-      <p class="feedback-thanks-msg" id="feedbackThanksMsg">Your feedback helps us improve LillyDirect for everyone.</p>
+
+    <!-- State: Contact (after "Not great") -->
+    <div class="fb-state fb-contact" id="fbContact">
+      <p class="fb-contact-title">Let's sort this out together.</p>
+      <div class="fb-contact-cards">
+        <div class="fb-contact-card">
+          <i class="ph ph-chat-circle-dots fb-contact-card-icon"></i>
+          <div class="fb-contact-card-text">
+            <p class="fb-contact-eyebrow">24/7 Support</p>
+            <a href="#" class="fb-contact-link">Chat with us</a>
+          </div>
+        </div>
+        <div class="fb-contact-card">
+          <i class="ph ph-phone fb-contact-card-icon"></i>
+          <div class="fb-contact-card-text">
+            <p class="fb-contact-eyebrow">Customer Support</p>
+            <a href="tel:18445593471" class="fb-contact-link">1-844-559-3471</a>
+          </div>
+        </div>
+      </div>
     </div>
+
   </section>
 
   <!-- ── CUSTOMER SUPPORT BANNER ── -->
@@ -1172,17 +1228,12 @@
 
   /* ── Feedback banner ── */
   function submitFeedback(type) {
-    document.getElementById('feedbackButtons').style.display = 'none';
-    const head = document.getElementById('feedbackThanksHead');
-    const msg  = document.getElementById('feedbackThanksMsg');
+    document.getElementById('fbDefault').classList.remove('active');
     if (type === 'good') {
-      head.textContent = 'We\'re glad to hear it!';
-      msg.textContent  = 'Thanks for sharing. Your feedback helps us keep improving.';
+      document.getElementById('fbSuccess').classList.add('active');
     } else {
-      head.textContent = 'Thanks for letting us know.';
-      msg.textContent  = 'We take every piece of feedback seriously and will keep working to improve.';
+      document.getElementById('fbContact').classList.add('active');
     }
-    document.getElementById('feedbackThanks').classList.add('visible');
   }
 </script>
 </body>
