@@ -214,21 +214,29 @@
     .med-selector {
       display: none;
       background: var(--white);
-      border: 1px solid var(--neutral-040);
-      border-radius: var(--radius-md);
+      border-radius: 16px;
       overflow: hidden;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      box-shadow: 0 8px 12px rgba(52,63,65,0.12), 0 4px 8px rgba(52,63,65,0.04);
+      padding: 4px 0;
+      margin-top: 8px;
     }
     .med-selector.open { display: block; }
     .med-option {
-      display: flex; align-items: center; gap: 12px;
-      padding: 12px 16px;
-      border-bottom: 1px solid var(--neutral-010);
+      display: flex; align-items: flex-start; gap: 12px;
+      padding: 16px 20px;
       cursor: pointer; transition: background 0.1s;
     }
-    .med-option:last-child { border-bottom: none; }
-    .med-option:hover { background: var(--neutral-010); }
-    .med-option.active { background: var(--red-005); }
+    .med-option:hover { background: #f5f5f5; }
+    .med-opt-radio {
+      width: 24px; height: 24px; border-radius: 50%;
+      border: 1.5px solid var(--neutral-040);
+      background: var(--white); flex-shrink: 0; margin-top: 2px;
+    }
+    .med-option.active .med-opt-radio {
+      border-color: var(--neutral-100);
+      background: var(--neutral-100);
+      box-shadow: inset 0 0 0 5px var(--white);
+    }
     .med-opt-thumb {
       width: 44px; height: 44px;
       background: var(--neutral-010);
@@ -237,9 +245,15 @@
     }
     .med-opt-thumb img { width: 100%; height: 100%; object-fit: contain; }
     .med-opt-info { flex: 1; min-width: 0; }
-    .med-opt-name { font-size: 14px; font-weight: 700; color: var(--neutral-100); }
-    .med-opt-sub { font-size: 11px; text-transform: uppercase; letter-spacing: 0.4px; color: var(--neutral-080); margin-top: 2px; }
-    .med-opt-sub.add { text-transform: none; font-style: italic; letter-spacing: 0; }
+    .med-opt-name { font-size: 16px; font-weight: 400; color: var(--neutral-100); line-height: 24px; }
+    .med-opt-sub { font-size: 14px; color: var(--neutral-080); line-height: 20px; margin-top: 2px; }
+    .med-option-add {
+      display: flex; align-items: center; gap: 12px;
+      padding: 16px 20px;
+      cursor: pointer; transition: background 0.1s;
+      border-top: 1px solid #f0f0f0;
+    }
+    .med-option-add:hover { background: #f5f5f5; }
 
     /* ── STATUS MESSAGE ── */
     .status-msg {
@@ -764,6 +778,7 @@
       <!-- Medication selector -->
       <div class="med-selector" id="medSelector">
         <div class="med-option active" onclick="closeMedSelector()">
+          <span class="med-opt-radio"></span>
           <div class="med-opt-thumb">
             <img src="assets/zepbound-thumb.png" alt="Zepbound" />
           </div>
@@ -771,17 +786,16 @@
             <p class="med-opt-name">Zepbound® (tirzepatide)</p>
             <p class="med-opt-sub">Vial 2.5 mg/0.5 mL</p>
           </div>
-          <i class="ph ph-check" style="font-size:18px;color:var(--red-060);flex-shrink:0"></i>
         </div>
-        <div class="med-option" onclick="closeMedSelector()">
+        <div class="med-option-add" onclick="closeMedSelector()">
           <div class="med-opt-thumb" style="background:var(--red-010)">
             <i class="ph ph-plus" style="font-size:20px;color:var(--red-060)"></i>
           </div>
           <div class="med-opt-info">
-            <p class="med-opt-name">Add another prescription</p>
-            <p class="med-opt-sub add">Get support for a different medicine</p>
+            <p class="med-opt-name" style="color:var(--red-060)">Add another prescription</p>
+            <p class="med-opt-sub">Get support for a different medicine</p>
           </div>
-          <i class="ph ph-arrow-right" style="font-size:16px;color:var(--neutral-040);flex-shrink:0"></i>
+          <i class="ph ph-arrow-right" style="font-size:16px;color:var(--neutral-040);flex-shrink:0;margin-top:2px"></i>
         </div>
       </div>
 
