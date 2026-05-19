@@ -276,27 +276,65 @@
     }
     .gs-select-wrap {
       padding: 0 16px;
-      margin-bottom: 24px;
+      margin-bottom: 0;
       position: relative;
     }
-    .gs-select-box {
+    .gs-trigger {
       width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--white);
       border: 1px solid var(--neutral-040);
-      border-radius: 8px;
-      padding: 14px 40px 14px 14px;
+      border-radius: 9999px;
+      padding: 14px 20px;
       font-size: 16px;
       font-family: var(--font-sans);
       color: var(--neutral-100);
+      cursor: pointer;
+      text-align: left;
+      gap: 8px;
+    }
+    .gs-trigger-label { flex: 1; }
+    .gs-trigger-caret { font-size: 20px; flex-shrink: 0; }
+    .gs-dropdown {
+      display: none;
+      position: absolute;
+      top: calc(100% + 4px);
+      left: 16px; right: 16px;
       background: var(--white);
-      appearance: none; -webkit-appearance: none;
+      border-radius: 16px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.12), 0 1px 4px rgba(0,0,0,0.08);
+      z-index: 100;
+      overflow: hidden;
+    }
+    .gs-dropdown.open { display: block; }
+    .gs-option {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 16px 20px;
       cursor: pointer;
     }
-    .gs-select-box:focus { outline: 2px solid var(--red-060); outline-offset: 2px; }
-    .gs-select-caret {
-      position: absolute; right: 28px; bottom: 17px;
-      pointer-events: none; color: var(--neutral-100);
+    .gs-option:not(:last-child) { border-bottom: 1px solid var(--neutral-010); }
+    .gs-option:hover { background: var(--neutral-010); }
+    .gs-option-radio {
+      width: 20px; height: 20px;
+      border-radius: 50%;
+      border: 2px solid var(--neutral-040);
+      background: var(--white);
+      flex-shrink: 0;
+      margin-top: 3px;
     }
-    .gs-faqs { padding: 0 16px; }
+    .gs-option.selected .gs-option-radio {
+      border-color: var(--neutral-100);
+      background: var(--neutral-100);
+      box-shadow: inset 0 0 0 4px var(--white);
+    }
+    .gs-option-text { display: flex; flex-direction: column; gap: 2px; flex: 1; }
+    .gs-option-label { font-size: 16px; font-weight: 400; color: var(--neutral-100); line-height: 24px; }
+    .gs-option-supporting { font-size: 14px; color: var(--neutral-080); line-height: 20px; }
+    .gs-faqs { padding: 0 16px; margin-top: 24px; }
     .gs-faq-item { border-top: 1px solid var(--neutral-040); padding: 16px 0; }
     .gs-faq-q {
       font-size: 14px; font-weight: 900;
@@ -703,12 +741,33 @@
 
     <!-- Topic select dropdown -->
     <div class="gs-select-wrap">
-      <select class="gs-select-box" id="gsSelect" aria-label="Choose a topic" onchange="switchGsTopic(this.value)">
-        <option value="account">Account &amp; General Info</option>
-        <option value="ordering">Ordering</option>
-        <option value="delivery">Delivery &amp; Retail Pickup</option>
-      </select>
-      <span class="gs-select-caret"><i class="ph ph-caret-down" style="font-size:18px"></i></span>
+      <button class="gs-trigger" id="gsTrigger" aria-haspopup="listbox" aria-expanded="false" onclick="toggleGsDropdown()">
+        <span class="gs-trigger-label" id="gsTriggerLabel">Account &amp; General Info</span>
+        <i class="ph ph-caret-down gs-trigger-caret" id="gsTriggerCaret"></i>
+      </button>
+      <div class="gs-dropdown" id="gsDropdown" role="listbox" aria-label="Choose a topic">
+        <div class="gs-option selected" role="option" aria-selected="true" onclick="selectGsTopic('account', 'Account & General Info', this)">
+          <span class="gs-option-radio"></span>
+          <div class="gs-option-text">
+            <span class="gs-option-label">Account &amp; General Info</span>
+            <span class="gs-option-supporting">Getting started with LillyDirect Pharmacy services</span>
+          </div>
+        </div>
+        <div class="gs-option" role="option" aria-selected="false" onclick="selectGsTopic('ordering', 'Ordering', this)">
+          <span class="gs-option-radio"></span>
+          <div class="gs-option-text">
+            <span class="gs-option-label">Ordering</span>
+            <span class="gs-option-supporting">How to place your first order and navigate prescription questions</span>
+          </div>
+        </div>
+        <div class="gs-option" role="option" aria-selected="false" onclick="selectGsTopic('delivery', 'Delivery & Retail Pickup', this)">
+          <span class="gs-option-radio"></span>
+          <div class="gs-option-text">
+            <span class="gs-option-label">Delivery &amp; Retail Pickup</span>
+            <span class="gs-option-supporting">Explore your delivery and pickup options</span>
+          </div>
+        </div>
+      </div>
     </div>
 
     <div class="gs-faqs">
@@ -1027,12 +1086,45 @@
   }
 
   /* ── Getting started topic selector ── */
-  function switchGsTopic(val) {
+  function toggleGsDropdown() {
+    const dropdown = document.getElementById('gsDropdown');
+    const trigger = document.getElementById('gsTrigger');
+    const caret = document.getElementById('gsTriggerCaret');
+    const isOpen = dropdown.classList.contains('open');
+    dropdown.classList.toggle('open');
+    trigger.setAttribute('aria-expanded', String(!isOpen));
+    caret.classList.toggle('ph-caret-down', isOpen);
+    caret.classList.toggle('ph-caret-up', !isOpen);
+  }
+
+  function selectGsTopic(val, label, optEl) {
+    document.getElementById('gsTriggerLabel').textContent = label;
+    document.querySelectorAll('.gs-option').forEach(o => {
+      o.classList.remove('selected');
+      o.setAttribute('aria-selected', 'false');
+    });
+    optEl.classList.add('selected');
+    optEl.setAttribute('aria-selected', 'true');
     document.querySelectorAll('.gs-faq-group').forEach(g => g.classList.remove('active'));
     const map = { account: 'gs-account', ordering: 'gs-ordering', delivery: 'gs-delivery' };
     const el = document.getElementById(map[val]);
     if (el) el.classList.add('active');
+    toggleGsDropdown();
   }
+
+  document.addEventListener('click', function(e) {
+    if (!e.target.closest('.gs-select-wrap')) {
+      const dropdown = document.getElementById('gsDropdown');
+      if (dropdown && dropdown.classList.contains('open')) {
+        const trigger = document.getElementById('gsTrigger');
+        const caret = document.getElementById('gsTriggerCaret');
+        dropdown.classList.remove('open');
+        trigger.setAttribute('aria-expanded', 'false');
+        caret.classList.remove('ph-caret-up');
+        caret.classList.add('ph-caret-down');
+      }
+    }
+  });
 
   /* ── FAQ chip filter ── */
   function filterFaq(cat, btn) {
